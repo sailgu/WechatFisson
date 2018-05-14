@@ -1,7 +1,10 @@
 # -*- coding: UTF-8 -*-
 from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
 from selenium.webdriver import ActionChains
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.common.by import By
 import time
 import random
 import string
@@ -19,7 +22,6 @@ parser.add_argument('--number', type = int,  default = 12,
         help='number of domain to create')
 args = parser.parse_args()
 
-
 def random_generator(size=6, chars=string.ascii_lowercase):
     return ''.join(random.choice(chars) for x in range(size))
 
@@ -28,16 +30,17 @@ account = args.account
 passwd = args.password
 
 driver = webdriver.Firefox()
+wait = WebDriverWait(driver, 10)
+
 driver.get('http://www.pubyun.com/accounts/signin/')
 driver.find_element_by_id('id_identification').send_keys(account)
 driver.find_element_by_id('id_password').send_keys(passwd)
 driver.find_element_by_class_name('btn_login').click()
-time.sleep(3)
 
-driver.find_element_by_class_name('left_navtit').click()
-driver.find_element_by_link_text('域名列表').click()
+wait.until(EC.element_to_be_clickable((By.CLASS_NAME, 'left_navtit'))).click()
+wait.until(EC.element_to_be_clickable((By.LINK_TEXT, '域名列表'))).click()
 
-table = driver.find_element_by_class_name('gy_result_tb')
+table = wait.until(EC.presence_of_element_located((By.CLASS_NAME, 'gy_result_tb')))
 rows = table.find_elements_by_tag_name('tr')[1:]
 
 conn = MySQLdb.connect(host='47.104.154.233', user='juyh', passwd='u3y4f2',
@@ -64,16 +67,16 @@ for domain in need_removed:
             find_element_by_xpath('../..'))
     cell = row.find_elements_by_tag_name('td')
     domain_str = cell[1].text.strip()
-    #print row.get_attribute('innerHTML')
+    print row.get_attribute('innerHTML')
     if domain_str in bad_domain and domain == domain_str:
         cell[5].find_element_by_class_name('delete').click()
         print domain_str, "find in bad domain list, so will be deleted"
         raw_input("Press Enter to delet it and continue...")
-        driver.find_element_by_id('rrdelete_button').click()
+        wait.until(EC.element_to_be_clickable((By.ID, 'rrdelete_button'))).click()
 
 fh = open('domain.txt', 'w')
 for idx in range(args.number):
-    driver.find_element_by_link_text('创建动态域名').click()
+    wait.until(EC.element_to_be_clickable((By.LINK_TEXT, u'创建动态域名'))).click()
     uncreated_domains = []
     while len(uncreated_domains) < 1:
         domin_input = driver.find_element_by_id('dyndns_name')
@@ -81,7 +84,7 @@ for idx in range(args.number):
         domin_input.send_keys(str(domain_idx_max+idx+1)+random_generator(12))
         driver.find_element_by_id('form_win_button').click()
 
-        table = driver.find_element_by_id('dyndns_table')
+        table = wait.until(EC.presence_of_element_located((By.ID, 'dyndns_table')))
         rows = table.find_elements_by_tag_name('tr')[1:]
         for row in rows:
             cell = row.find_elements_by_tag_name('td')
@@ -91,7 +94,7 @@ for idx in range(args.number):
                     uncreated_domains.append([cell[0].text.split()[0], row])
 
     choiced_domain = random.choice(uncreated_domains)
-    #raw_input(choiced_domain[0]+' will created, Pree Enter to continue...')
+    raw_input(choiced_domain[0]+' will created, Press Enter to continue...')
     choiced_domain[1].find_element_by_link_text(u'创建域名').click()
     time.sleep(3)
     if driver.find_element_by_id('rr_result').text.count(u'个数已满')>0:
@@ -102,10 +105,9 @@ for idx in range(args.number):
                find_element_by_xpath('../..'))
     #print ip_set.get_attribute('innerHTML')
     ip_set.find_element_by_class_name('editor').click()
-    ip_set = driver.find_element_by_name('ip')
+    ip_set = wait.until(EC.presence_of_element_located((By.NAME, 'ip')))
     ip_set.clear()
     ip_set.send_keys(IP)
     driver.find_element_by_id('rr_postbtn').click()
-    time.sleep(3)
 
 
