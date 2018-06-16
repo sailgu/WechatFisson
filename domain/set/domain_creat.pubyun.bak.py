@@ -56,11 +56,25 @@ cur.execute(sql_domain1)
 bad_domain = bad_domain | set([_[0].strip() for _ in cur.fetchall()])
 
 
+all_domain = "select domain from domain"
+cur = conn.cursor()
+cur.execute(all_domain)
+all_domains = set([_[0].strip() for _ in cur.fetchall()])
+
+
+all_domain1 = "select domain from domain1"
+cur = conn.cursor()
+cur.execute(all_domain1)
+all_domains = all_domains | set([_[0].strip() for _ in cur.fetchall()])
+
 created_domain = set([_.find_elements_by_tag_name('td')[1].text.strip() for _ in rows])
 matched_number = [re.findall('^\d+', _) for _ in created_domain]
 domain_idx_max = max([int(_[0]) for _ in matched_number if len(_)>0] + [0])
 
+noexist_domain = set([ _ for _ in created_domain if _ not in all_domains])
+
 need_removed = created_domain - (created_domain - bad_domain)
+need_removed = noexist_domain | need_removed
 
 for domain in need_removed:
     row = (driver.find_element_by_partial_link_text(domain).
@@ -68,7 +82,7 @@ for domain in need_removed:
     cell = row.find_elements_by_tag_name('td')
     domain_str = cell[1].text.strip()
     print row.get_attribute('innerHTML')
-    if domain_str in bad_domain and domain == domain_str:
+    if domain_str in need_removed and domain == domain_str:
         cell[5].find_element_by_class_name('delete').click()
         print domain_str, "find in bad domain list, so will be deleted"
         raw_input("Press Enter to delet it and continue...")

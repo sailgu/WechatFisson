@@ -25,7 +25,7 @@ wait.until(EC.element_to_be_clickable((By.ID, 'loginBarBt'))).click()
 for account_line in read_tsv(sys.argv[1]):
     time.sleep(0.5)
     driver.find_element_by_name('account').send_keys(account_line[3])
-    driver.find_element_by_name('password').send_keys(account_line[4])
+    driver.find_element_by_name('passwd').send_keys(account_line[4])
     driver.find_element_by_class_name('btn btn_primary btn_login').click()
 
     table = wait.until(EC.presence_of_element_located((By.ID, 'bizplugin_pend')))
@@ -53,8 +53,9 @@ for account_line in read_tsv(sys.argv[1]):
         domain_input.clear()
         domain_input.send_keys('')
         submit = driver.find_element_by_css_selector('a#submitBt.btn.btn_primary.jsSendBt')
-        while
-        submit.click
+        while driver.find_element_by_css_selector('a#submitBt.btn.btn_primary.jsSendBt'):
+            submit.click
+            time.sleep(0.5)
 
 
 
