@@ -12,12 +12,11 @@ import MySQLdb
 import re
 import argparse
 
-parser = argparse.ArgumentParser(description='delet blocked domain and create\
-        new domain in Pubyun.com')
+parser = argparse.ArgumentParser(
+        description='delet blocked domain and create new domain in Pubyun.com')
 parser.add_argument('account', help='account for Pubyun.com')
 parser.add_argument('password', help='password for Pubyun.com')
-parser.add_argument('--ip', default = '118.190.126.142',
-        help='ip for the domain')
+parser.add_argument('--ip', default = '118.190.126.142', help='ip for the domain')
 parser.add_argument('--number', type = int,  default = 12,
         help='number of domain to create')
 args = parser.parse_args()
