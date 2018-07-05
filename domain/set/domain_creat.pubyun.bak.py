@@ -95,6 +95,8 @@ for idx in range(args.number):
         domin_input = driver.find_element_by_id('dyndns_name')
         domin_input.clear()
         domin_input.send_keys(str(domain_idx_max+idx+1)+random_generator(12))
+        driver.find_element_by_partial_link_text(".8800.org").click()
+        #driver.find_element_by_partial_link_text(".8800.org").click()
         driver.find_element_by_id('form_win_button').click()
 
         table = wait.until(EC.presence_of_element_located((By.ID, 'dyndns_table')))
@@ -103,7 +105,7 @@ for idx in range(args.number):
             cell = row.find_elements_by_tag_name('td')
             if cell[0].text.count(u'已被创建') == 0 :
                 domain_extract = cell[0].text.split()[0]
-                if domain_extract.count('.3322.') or domain_extract.count('.eatuo.'):
+                if domain_extract.count('.3322.') or domain_extract.count('.8800.'):
                     uncreated_domains.append([cell[0].text.split()[0], row])
 
     choiced_domain = random.choice(uncreated_domains)

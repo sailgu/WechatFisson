@@ -1,0 +1,1492 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+<title>微信开放平台</title>
+<script type="text/javascript">
+	var Report={
+		start:+new Date(),
+		point:{}
+	}
+
+  window.wx={
+    fake_id: '3565341499',
+    data:{
+      lang:'zh_CN'||'zh_CN'
+    }
+  };
+</script>
+<link href="https://res.wx.qq.com/open/zh_CN/htmledition/res/img/icon/common/favicon3b8804.ico" rel="Shortcut Icon">
+<script type="text/javascript" src="https://res.wx.qq.com/open/zh_CN/htmledition/js/common/wx/jserr3b8804.js"></script>
+<link rel="stylesheet" type="text/css" href="https://res.wx.qq.com/open/zh_CN/htmledition/res/css/base/lib3b8804.css">
+<link rel="stylesheet" type="text/css" href="https://res.wx.qq.com/open/zh_CN/htmledition/res/css/base/base3b8804.css">
+<link rel="stylesheet" type="text/css" href="https://res.wx.qq.com/open/zh_CN/htmledition/res/css/base/base3b8804.css">
+
+        
+<link rel="stylesheet" type="text/css" href="https://res.wx.qq.com/open/zh_CN/htmledition/res/css/page/manage/detail3dd68c.css"/>
+<link rel="stylesheet" type="text/css" href="https://res.wx.qq.com/c/=/open/zh_CN/htmledition/res/css/widget/verifycode3b8804.css,/open/zh_CN/htmledition/res/css/widget/qrcode_check3b8804.css,/open/zh_CN/htmledition/res/css/widget/processor_bar3dd68c.css,/open/zh_CN/htmledition/res/css/widget/popover3b8804.css" />
+
+    </head>
+    <script type="text/javascript">Report.point[20]=+new Date();</script>
+    <body class="  zh_CN">
+        <div class="head">
+            <div class="global_bar" id="loginBar">
+	<div class="inner wrp">
+	    &nbsp;
+	    <div class="account" id="loginAccount">
+	    		        <a href="javascript:void(0);" title="lxay92@163.com" data-url="setting/dev" target="self" class="account_meta login_username no_extra jsUrlLink">
+                                    lxay92@163.com
+                            </a>
+	        <a href="javascript:void(0);" data-url="home/notice" target="self" class="account_meta jsUrlLink jsNotice">通知<i class="icon_common notices jsDot" style="display:none"></i></a>
+	        <a href="/cgi-bin/logout" class="account_meta" target="_self">退出</a>
+
+            <a href="javascript:void(0);" id="biz_qrcode_a" class="account_meta extra_info dev_code">
+                <img src="https://res.wx.qq.com/open/zh_CN/htmledition/res/img/pic/mp-dev-guide/icon_dev_code3b8804.png" class="icon_devcode">
+                <div id="biz_qrcode_div" style="display:none;" class="bubble_tips bubble_top code_pop">
+                    <div class="bubble_tips_inner">
+                     <p><img src="https://res.wx.qq.com/open/zh_CN/htmledition/res/img/pic/mp-dev-guide/dev_code3b8804.jpg" class="pic_devcode"></p>
+                     <p class="txt_enhanced">请扫码关注<br>接收重要通知</p>
+                    </div>
+                    <i class="bubble_tips_arrow out"></i>
+                    <i class="bubble_tips_arrow in"></i>
+                 </div>
+            </a>
+            
+            <a href="javascript:;" class="menu_wrps lang_switch"  >
+                <div class="menu_container">
+                    <div class="menu_placeholder">
+                        <i class="pic_lang_switch"></i>
+                    </div>
+                    
+                    <div class="menu_list_wrps" id="jsLangMenu">
+                        <div class="menu_list_container">
+                            <ul class="menu_list">
+                                <li class="menu_list_ele">
+                                    <label class="frm_radio_label jsLangLabel">
+                                        <i class="icon_radio"></i>
+                                        <span class="lbl_content">English</span>
+                                        <input type="radio" value="en_US" class="frm_radio jsLangSelect" >
+                                    </label>
+                                </li>
+                                <li class="menu_list_ele">
+                                    <label class="frm_radio_label jsLangLabel">
+                                        <i class="icon_radio"></i>
+                                        <span class="lbl_content">中文（简体）</span>
+                                        <input type="radio" value="zh_CN" class="frm_radio jsLangSelect">
+                                    </label>
+                                </li>
+                                
+                            </ul>
+                        </div>
+                    </div>
+                    
+                </div>
+            </a>
+            
+	        	    </div>
+	</div>
+</div>
+
+<script type="text/html" charset="utf-8" id="loginPop">
+<div class="login_panel label_input prepend open" id="{id}" style="margin-top:-300px;">
+    <div id="{id}_wx">
+        <div class="login_inner wx">
+            <form class="form login_form"  id="{id}_form">
+                <fieldset class="login_fieldset">
+                    <legend class="login_legend">登录</legend>
+
+                    <div class="login_input_area">
+                        <span class="login_input_box first">
+                            <label class="login_label">邮箱</label>
+                            <input type="text" placeholder="请填写登录邮箱" class="frm_input" name="account"></span>
+                        <span class="login_input_box last">
+                            <label class="login_label">密码</label>
+                            <input type="password"  placeholder="请填写密码" class="frm_input" name="passwd"></span>
+                    </div>
+                    <div class="login_code_area" style="display:none" id="{id}_verifyContainer">
+                        <div class="verifycode" id="{id}_verify"></div>
+                    </div>
+
+                    <div class="login_function_area">
+                        <input type="checkbox" class="frm_checkbox" data-label="记住帐号" id="{id}_check">
+                        <a href="javascript:void(0);" id="{id}_forget" class="jsUrlLink" data-url="regist/forget">忘记密码</a>
+                    </div>
+
+                    <div class="login_valid_area"  id="{id}_fail">
+
+                    </div>
+
+                    <div class="login_tool_area">
+                        <a href="javascript:void(0);" class="btn btn_primary btn_login" id="{id}_login">登录</a>
+                        <a href="javascript:void(0);" class="btn btn_default btn_regist" id="{id}_regist">注册</a>
+                    </div>
+                </fieldset>
+            </form>
+
+        </div>
+        <div class="login_tips wx">
+                <p>
+                    <i class="icon_login qq"></i>QQ号注册的老用户，<a href="javascript:;" id="{id}_goQQ">点此登录</a>                </p>
+        </div>
+    </div>
+
+    <div class="login_inner qq" style="display:none;" align="center" id="{id}_qq">
+             <legend class="login_legend">登录</legend>
+            <iframe src="" frameborder="0" id="{id}_frame"></iframe> 
+
+            <div class="login_tips qq">
+                <p>
+                    仅供旧注册用户使用，新用户请<a href="javascript:;" id="{id}_goWX">使用邮箱帐号注册和登录</a>                </p>
+            </div>
+    </div>
+        <a href="javascript:void(0);" class="login_close icon16_common close " id="{id}_close">关闭</a>
+</div>
+</script>
+
+            <div class="head_box">
+                <div class="inner wrp">
+                    <h1 class="logo">
+                        <a href="/" class="jsUrlLink"  data-url="home/index" target="self" title="微信开放平台">微信开放平台</a>
+                    </h1>
+                    <ul class="nav">
+    <li class="nav_item jsNavItem" data-id="index"><a href="javascript:" class="jsUrlLink" data-url="home/index" target="self">首页</a></li>
+    <li class="nav_item jsNavItem" data-id="res"><a href="javascript:" class="jsUrlLink" data-url="home/resource" target="self">资源中心</a></li>
+    <li class="nav_item jsNavItem" data-id="manage"><a href="javascript:" class="jsUrlLink" data-login="true" data-url="manage/list" target="self">管理中心</a></li>
+    <li class="nav_item jsNavItem" data-id="statistics"><a href="javascript:" class="jsUrlLink" data-login="true" data-url="manage/statistics" target="self">数据中心</a></li>
+    <li class="nav_item jsNavItem" data-id="account"><a href="javascript:" class="jsUrlLink" data-login="true" data-url="setting/dev" target="self">帐号中心</a></li>
+</ul>
+
+                </div>
+            </div>
+        </div>
+        <div class="body">
+            <div class="inner wrp">
+                
+<div class="page_nav">
+    <a href="javascript:void(0);" class="jsUrlLink" data-url="manage/list" target="self">管理中心</a>
+    <span class="gap">/</span>
+        平台详情    </div>
+
+                <div class="container_box cell_layout">
+<div class="app_detail_box" id="js_main" style="display: none;">
+</div>
+<div class="app_detail_box" id="code_lib_detail" style="display: none;">
+</div>
+
+<script type="text/html" id="js_app_secret_dialog">
+    <div id="js_step_items"></div>
+    <div class="app_dia_main">
+        
+        <div class="app_dia_qr" id="js_step_1">
+            <div class="app_qr_bd">
+                <p>为保障账号安全，请用管理员微信扫码验证身份</p>
+                <div class="qr_code_img js_qrcheck"></div>
+            </div>
+
+        </div>
+        
+        <div class="app_dia_show" style="display: none" id="js_step_2">
+        </div>
+    </div>
+</script>
+<script type="text/html" id="js_step_2_tpl">
+    <div class="page_msg mini app_dia_msg">
+        <div class="inner group">
+            <span class="msg_icon_wrp"><i class="icon_msg_mini info"></i></span>
+            <div class="msg_content">
+                <p>本页面关闭后，微信开放平台将不再存储和显示AppSecret，请妥善保存。</p>
+            </div>
+        </div>
+    </div>
+    <div class="app_dia_infos">
+        <div class="app_info_thumb">
+            <img src="{url}" alt="thumb">
+        </div>
+        <div class="app_dia_info">
+            <p class="app_dia_name">{name}</p>
+            <div class="app_info_row">
+                <p class="first_elem">AppID:</p>
+                <p>{AppID}</p>
+            </div>
+            <div class="app_info_row">
+                <p class="first_elem">AppSecret:</p>
+                <p class="app_sec_content" id="js_copy_input">{AppSecret}</p>
+                <p><a href="javascript:void(0);" id="js_copy">复制</a></p>
+            </div>
+        </div>
+    </div>
+    <div class="app_accept">
+        <label class="frm_checkbox_label">
+            <i class="icon_checkbox"></i>
+            <span class="lbl_content">我已经了解AppSecret不再明文储存在开放平台上，并且已经复制保存好该AppSecret</span>
+            <input type="checkbox" class="frm_checkbox" id="js_check">
+        </label>
+    </div>
+</script>
+
+
+
+
+</div>
+            </div>
+        </div>
+        <div class="foot">
+    <div class="inner wrp">
+        <p class="copyright">&copy; 1998 - 2018 Tencent All Right Reserved.</p>
+        <ul class="ft links">
+        	 
+        	<li class="links_item no_extra"><a href="/cgi-bin/infringement?action=getlist&type=1&begin=0&count=15&lang=zh_CN&token=da4fc6ae431d4d41ce04b2ad87acfe1fe4eac4bf" target="_blank">侵权投诉</a></li>
+        	          
+        	<li class="links_item no_extra"><a href="/cgi-bin/frame?t=news/protocol_developer_tmpl" target="_blank">开发者协议</a></li>
+          <li class="links_item no_extra"><a href="https://mp.weixin.qq.com/cgi-bin/announce?action=getannouncement&announce_id=1512986091&version=1&lang=zh_CN&platform=2" target="_blank">运营规范</a></li>
+            <li class="links_item no_extra"><a href="http://www.tencent.com/zh-cn/index.shtml" target="_blank">联系腾讯</a></li>
+            <li class="links_item last_child"><a href="mailto:weixin-open@qq.com" target="_self">投诉建议</a></li>
+        </ul>
+    </div>
+</div>
+
+    </body>
+    <script type="text/javascript">var MODULES = {'tpl/news/home.html.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/tpl/news/home.html3b8804.js','tpl/home/admin_popup.html.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/tpl/home/admin_popup.html3b8804.js','tpl/biz_web/ui/dateRange.html.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/tpl/biz_web/ui/dateRange.html3b8804.js','tpl/biz_web/ui/checkbox.html.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/tpl/biz_web/ui/checkbox.html3b8804.js','tpl/biz_web/ui/timeRange.html.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/tpl/biz_web/ui/timeRange.html3b8804.js','tpl/biz_web/ui/dropdown.html.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/tpl/biz_web/ui/dropdown.html3b8804.js','tpl/biz_web/ui/multiupload.html.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/tpl/biz_web/ui/multiupload.html3b8804.js','tpl/tooltips.html.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/tpl/tooltips.html3b8804.js','tpl/checkbox.html.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/tpl/checkbox.html3b8804.js','tpl/qrcheck/qrcode.html.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/tpl/qrcheck/qrcode.html3b8804.js','tpl/qrcheck/popup.html.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/tpl/qrcheck/popup.html3b8804.js','tpl/nav.html.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/tpl/nav.html3b8804.js','tpl/tort/complaint_notice.html.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/tpl/tort/complaint_notice.html3b8804.js','tpl/tort/appCard.html.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/tpl/tort/appCard.html3b8804.js','tpl/tort/appPopup.html.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/tpl/tort/appPopup.html3b8804.js','tpl/tort/step1.html.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/tpl/tort/step1.html3b8804.js','tpl/tort/view/contact_view_tpl.html.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/tpl/tort/view/contact_view_tpl.html3b8804.js','tpl/tort/view/content_view_tpl.html.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/tpl/tort/view/content_view_tpl.html3b8804.js','tpl/tort/step4.html.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/tpl/tort/step4.html3b8804.js','tpl/tort/appeal_notice.html.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/tpl/tort/appeal_notice.html3b8804.js','tpl/tort/step3.html.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/tpl/tort/step3.html3b8804.js','tpl/tort/step2.html.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/tpl/tort/step2.html3d1864.js','tpl/pagebar.html.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/tpl/pagebar.html3b8804.js','tpl/uploader.html.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/tpl/uploader.html3b8804.js','tpl/cardticket/apply_logo.html.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/tpl/cardticket/apply_logo.html3b8804.js','tpl/cardticket/apply_card_deal.html.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/tpl/cardticket/apply_card_deal.html3b8804.js','tpl/linktip.html.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/tpl/linktip.html3b8804.js','tpl/verifycode.html.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/tpl/verifycode.html3b8804.js','tpl/qrcheck.html.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/tpl/qrcheck.html3b8804.js','tpl/step.html.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/tpl/step.html3dd68c.js','tpl/public/wxverify/entreg.html.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/tpl/public/wxverify/entreg.html3b8804.js','tpl/public/wxverify/invoice_edit.html.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/tpl/public/wxverify/invoice_edit.html3b8804.js','tpl/public/wxverify/common_preview.html.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/tpl/public/wxverify/common_preview.html3b8804.js','tpl/public/wxverify/gov_preview.html.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/tpl/public/wxverify/gov_preview.html3b8804.js','tpl/public/wxverify/mediaent_preview.html.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/tpl/public/wxverify/mediaent_preview.html3b8804.js','tpl/public/wxverify/step1.html.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/tpl/public/wxverify/step1.html3b8804.js','tpl/public/wxverify/social_preview.html.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/tpl/public/wxverify/social_preview.html3b8804.js','tpl/public/wxverify/step5.html.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/tpl/public/wxverify/step5.html3da95e.js','tpl/public/wxverify/publicservice_preview.html.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/tpl/public/wxverify/publicservice_preview.html3b8804.js','tpl/public/wxverify/nonprofitreg.html.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/tpl/public/wxverify/nonprofitreg.html3b8804.js','tpl/public/wxverify/mediareg.html.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/tpl/public/wxverify/mediareg.html3b8804.js','tpl/public/wxverify/confirmname.html.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/tpl/public/wxverify/confirmname.html3b8804.js','tpl/public/wxverify/media_preview.html.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/tpl/public/wxverify/media_preview.html3b8804.js','tpl/public/wxverify/profitable_preview.html.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/tpl/public/wxverify/profitable_preview.html3b8804.js','tpl/public/wxverify/shopreg.html.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/tpl/public/wxverify/shopreg.html3b8804.js','tpl/public/wxverify/govreg.html.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/tpl/public/wxverify/govreg.html3b8804.js','tpl/public/wxverify/artist_preview.html.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/tpl/public/wxverify/artist_preview.html3b8804.js','tpl/public/wxverify/commonreg.html.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/tpl/public/wxverify/commonreg.html3b8804.js','tpl/public/wxverify/step4.html.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/tpl/public/wxverify/step4.html3b8804.js','tpl/public/wxverify/artistreg.html.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/tpl/public/wxverify/artistreg.html3b8804.js','tpl/public/wxverify/nonprofit_preview.html.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/tpl/public/wxverify/nonprofit_preview.html3b8804.js','tpl/public/wxverify/profitablereg.html.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/tpl/public/wxverify/profitablereg.html3b8804.js','tpl/public/wxverify/step3.html.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/tpl/public/wxverify/step3.html3b8804.js','tpl/public/wxverify/increment_tax_form.html.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/tpl/public/wxverify/increment_tax_form.html3b8804.js','tpl/public/wxverify/civilian_preview.html.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/tpl/public/wxverify/civilian_preview.html3b8804.js','tpl/public/wxverify/mediaentreg.html.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/tpl/public/wxverify/mediaentreg.html3b8804.js','tpl/public/wxverify/publicservice.html.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/tpl/public/wxverify/publicservice.html3b8804.js','tpl/public/wxverify/invoice_field.html.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/tpl/public/wxverify/invoice_field.html3b8804.js','tpl/public/wxverify/civilianreg.html.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/tpl/public/wxverify/civilianreg.html3b8804.js','tpl/public/wxverify/ent_preview.html.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/tpl/public/wxverify/ent_preview.html3b8804.js','tpl/public/wxverify/step2.html.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/tpl/public/wxverify/step2.html3b8804.js','tpl/public/wxverify/socialreg.html.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/tpl/public/wxverify/socialreg.html3b8804.js','tpl/public/wxverify/shop_preview.html.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/tpl/public/wxverify/shop_preview.html3b8804.js','tpl/dropdown.html.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/tpl/dropdown.html3b8804.js','tpl/dialog.html.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/tpl/dialog.html3b8804.js','tpl/popup.html.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/tpl/popup.html3b8804.js','tpl/process.html.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/tpl/process.html3b8804.js','news/news.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/news/news3b8804.js','common/wx/Cgi.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/common/wx/Cgi3b8804.js','.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/.js','news/list.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/news/list3b8804.js','common/wx/pagebar.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/common/wx/pagebar3b8804.js','home/admin_popup.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/home/admin_popup3b8804.js','common/wx/popup.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/common/wx/popup3b8804.js','common/wx/Tips.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/common/wx/Tips3b8804.js','home/appeal.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/home/appeal3b8804.js','biz_web/utils/upload.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/biz_web/utils/upload3b8804.js','biz_common/moment.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/biz_common/moment3b8804.js','home/index.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/home/index3b8804.js','common/lib/json.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/common/lib/json3b8804.js','common/wx/slider.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/common/wx/slider3b8804.js','home/notice.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/home/notice3b8804.js','common/lib/moment.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/common/lib/moment3b8804.js','common/wx/checkbox.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/common/wx/checkbox3b8804.js','jweixin-1.2.0.src.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/jweixin-1.2.0.src3b8804.js','jweixin-1.2.1.src.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/jweixin-1.2.1.src3b8804.js','jweixin-1.3.1.src.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/jweixin-1.3.1.src3b8804.js','biz_web/ui/dateRange.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/biz_web/ui/dateRange3b8804.js','biz_web/widget/date_range.css': 'https://res.wx.qq.com/open/zh_CN/htmledition/res/css/biz_web/widget/date_range3b8804.css','biz_web/ui/map.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/biz_web/ui/map3b8804.js','biz_web/ui/checkbox.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/biz_web/ui/checkbox3b8804.js','biz_web/ui/jquery.scrollbar.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/biz_web/ui/jquery.scrollbar3b8804.js','biz_web/widget/jquery.scrollbar.css': 'https://res.wx.qq.com/open/zh_CN/htmledition/res/css/biz_web/widget/jquery.scrollbar3b8804.css','biz_web/ui/dropdown.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/biz_web/ui/dropdown3b8804.js','biz_web/widget/dropdown.css': 'https://res.wx.qq.com/open/zh_CN/htmledition/res/css/biz_web/widget/dropdown3b8804.css','biz_web/ui/input/lentips.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/biz_web/ui/input/lentips3b8804.js','biz_web/ui/input/targetips.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/biz_web/ui/input/targetips3b8804.js','biz_web/lib/soundmanager2.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/biz_web/lib/soundmanager23b8804.js','biz_web/lib/audiojs.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/biz_web/lib/audiojs3b8804.js','biz_web/lib/highcharts-v4.2.1.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/biz_web/lib/highcharts-v4.2.13b8804.js','biz_web/lib/webuploader.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/biz_web/lib/webuploader3b8804.js','biz_web/lib/webuploader/base.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/biz_web/lib/webuploader/base3b8804.js','biz_web/lib/webuploader/widgets/filepicker.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/biz_web/lib/webuploader/widgets/filepicker3b8804.js','biz_web/lib/webuploader/widgets/queue.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/biz_web/lib/webuploader/widgets/queue3b8804.js','biz_web/lib/webuploader/widgets/runtime.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/biz_web/lib/webuploader/widgets/runtime3b8804.js','biz_web/lib/webuploader/widgets/upload.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/biz_web/lib/webuploader/widgets/upload3b8804.js','biz_web/lib/webuploader/widgets/validator.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/biz_web/lib/webuploader/widgets/validator3b8804.js','biz_web/lib/webuploader/widgets/image.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/biz_web/lib/webuploader/widgets/image3b8804.js','biz_web/lib/webuploader/runtime/html5/blob.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/biz_web/lib/webuploader/runtime/html5/blob3b8804.js','biz_web/lib/webuploader/runtime/html5/filepicker.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/biz_web/lib/webuploader/runtime/html5/filepicker3b8804.js','biz_web/lib/webuploader/runtime/html5/imagemeta/exif.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/biz_web/lib/webuploader/runtime/html5/imagemeta/exif3b8804.js','biz_web/lib/webuploader/runtime/html5/transport.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/biz_web/lib/webuploader/runtime/html5/transport3b8804.js','biz_web/lib/webuploader/runtime/html5/image.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/biz_web/lib/webuploader/runtime/html5/image3b8804.js','biz_web/lib/webuploader/runtime/flash/filepicker.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/biz_web/lib/webuploader/runtime/flash/filepicker3b8804.js','biz_web/lib/webuploader/runtime/flash/transport.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/biz_web/lib/webuploader/runtime/flash/transport3b8804.js','biz_web/lib/webuploader/runtime/flash/blob.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/biz_web/lib/webuploader/runtime/flash/blob3b8804.js','biz_web/lib/webuploader/runtime/flash/image.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/biz_web/lib/webuploader/runtime/flash/image3b8804.js','biz_web/lib/highcharts.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/biz_web/lib/highcharts3b8804.js','biz_web/lib/video.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/biz_web/lib/video3b8804.js','biz_web/lib/spin.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/biz_web/lib/spin3b8804.js','biz_web/lib/raphael-min.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/biz_web/lib/raphael-min3b8804.js','eve.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/eve.js','biz_web/lib/swfobject.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/biz_web/lib/swfobject3b8804.js','biz_web/lib/store.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/biz_web/lib/store3b8804.js','biz_web/lib/json.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/biz_web/lib/json3b8804.js','biz_web/lib/uploadify.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/biz_web/lib/uploadify3b8804.js','biz_web/lib/highcharts-more-v4.2.4.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/biz_web/lib/highcharts-more-v4.2.43b8804.js','biz_web/lib/webuploader/lib/filepicker.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/biz_web/lib/webuploader/lib/filepicker3b8804.js','biz_web/lib/webuploader/runtime/client.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/biz_web/lib/webuploader/runtime/client3b8804.js','biz_web/lib/webuploader/lib/file.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/biz_web/lib/webuploader/lib/file3b8804.js','biz_web/lib/webuploader/lib/image.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/biz_web/lib/webuploader/lib/image3b8804.js','biz_web/lib/webuploader/lib/blob.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/biz_web/lib/webuploader/lib/blob3b8804.js','biz_web/lib/webuploader/lib/transport.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/biz_web/lib/webuploader/lib/transport3b8804.js','biz_web/lib/webuploader/mediator.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/biz_web/lib/webuploader/mediator3b8804.js','biz_web/lib/webuploader/uploader.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/biz_web/lib/webuploader/uploader3b8804.js','biz_web/lib/webuploader/file.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/biz_web/lib/webuploader/file3b8804.js','biz_web/lib/webuploader/widgets/widget.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/biz_web/lib/webuploader/widgets/widget3b8804.js','biz_web/lib/webuploader/runtime/runtime.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/biz_web/lib/webuploader/runtime/runtime3b8804.js','biz_web/lib/webuploader/queue.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/biz_web/lib/webuploader/queue3b8804.js','biz_web/lib/webuploader/dollar-third.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/biz_web/lib/webuploader/dollar-third3b8804.js','biz_web/lib/webuploader/promise.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/biz_web/lib/webuploader/promise3b8804.js','biz_web/lib/webuploader/runtime/html5/runtime.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/biz_web/lib/webuploader/runtime/html5/runtime3b8804.js','biz_web/lib/webuploader/runtime/html5/util.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/biz_web/lib/webuploader/runtime/html5/util3b8804.js','biz_web/lib/webuploader/runtime/compbase.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/biz_web/lib/webuploader/runtime/compbase3b8804.js','biz_web/lib/webuploader/runtime/html5/jpegencoder.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/biz_web/lib/webuploader/runtime/html5/jpegencoder3b8804.js','biz_web/lib/webuploader/runtime/html5/imagemeta.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/biz_web/lib/webuploader/runtime/html5/imagemeta3b8804.js','biz_web/lib/webuploader/runtime/flash/runtime.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/biz_web/lib/webuploader/runtime/flash/runtime3b8804.js','biz_web/lib/webuploader/dollar-builtin.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/biz_web/lib/webuploader/dollar-builtin3b8804.js','biz_web/utils/Piper.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/biz_web/utils/Piper3b8804.js','widget/upload.css': 'https://res.wx.qq.com/open/zh_CN/htmledition/res/css/widget/upload3b8804.css','common/wx/dialog.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/common/wx/dialog3b8804.js','biz_web/utils/multiupload.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/biz_web/utils/multiupload3b8804.js','common/wx/preview.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/common/wx/preview.js','manage/card_business_manage.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/manage/card_business_manage3b8804.js','common/wx/linktip.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/common/wx/linktip3b8804.js','manage/createBizpluginStep2.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/manage/createBizpluginStep23b8804.js','manage/formatData.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/manage/formatData3b8804.js','common/wx/route.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/common/wx/route3dd68c.js','manage/resetAppsecret.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/manage/resetAppsecret3b8804.js','manage/plugin_detail.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/manage/plugin_detail3e2422.js','common/qq/jquery.plugin/zclip.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/common/qq/jquery.plugin/zclip3b8804.js','common/wx/time.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/common/wx/time3b8804.js','common/wx/tooltips.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/common/wx/tooltips3b8804.js','manage/appSecretDialog.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/manage/appSecretDialog3b8804.js','plugin/submit_pay.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/plugin/submit_pay3b8804.js','manage/card_business_detail.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/manage/card_business_detail3b8804.js','common/wx/Step.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/common/wx/Step3dd68c.js','common/wx/qrcheck.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/common/wx/qrcheck3b8804.js','manage/create_card_business.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/manage/create_card_business3b8804.js','common/lib/jquery.validate.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/common/lib/jquery.validate3b8804.js','common/lib/jquery.md5.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/common/lib/jquery.md53b8804.js','common/wx/dropdown.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/common/wx/dropdown3b8804.js','manage/createMobileStep2.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/manage/createMobileStep23b8804.js','manage/step2Submit.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/manage/step2Submit3b8804.js','common/wx/verifycode.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/common/wx/verifycode3b8804.js','manage/createWebStep2.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/manage/createWebStep23b8804.js','manage/create.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/manage/create3b8804.js','common/wx/process.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/common/wx/process3b8804.js','manage/createStep1.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/manage/createStep13b8804.js','manage/createBizpluginStep3.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/manage/createBizpluginStep33b8804.js','manage/apply_advanced.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/manage/apply_advanced3b8804.js','widget/dropdown.css': 'https://res.wx.qq.com/open/zh_CN/htmledition/res/css/widget/dropdown3b8804.css','common/wx/clientCode.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/common/wx/clientCode3b8804.js','manage/list.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/manage/list3df831.js','manage/detail.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/manage/detail3df831.js','manage/wxOpenIndex.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/manage/wxOpenIndex3b8804.js','manage/card_powered_apply.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/manage/card_powered_apply3b8804.js','manage/modify.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/manage/modify3b8804.js','manage/plugin_modify.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/manage/plugin_modify3b8804.js','manage/wxOpenDetail.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/manage/wxOpenDetail3b8804.js','biz_common/dom/attr.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/biz_common/dom/attr3b8804.js','biz_common/dom/event.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/biz_common/dom/event3b8804.js','biz_common/dom/class.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/biz_common/dom/class3b8804.js','biz_common/ui/imgonepx.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/biz_common/ui/imgonepx3b8804.js','biz_common/virtual-template.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/biz_common/virtual-template3b8804.js','biz_common/aes.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/biz_common/aes3b8804.js','biz_common/utils/emoji_panel_data.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/biz_common/utils/emoji_panel_data3b8804.js','biz_common/utils/monitor.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/biz_common/utils/monitor3b8804.js','biz_common/utils/huatuo.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/biz_common/utils/huatuo3b8804.js','biz_common/utils/respTypes.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/biz_common/utils/respTypes3b8804.js','biz_common/utils/string/html.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/biz_common/utils/string/html3b8804.js','biz_common/utils/string/emoji.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/biz_common/utils/string/emoji3b8804.js','biz_common/utils/string/jsonDeepHtmldecode.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/biz_common/utils/string/jsonDeepHtmldecode3b8804.js','biz_common/utils/url/parse.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/biz_common/utils/url/parse3b8804.js','biz_common/utils/spin.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/biz_common/utils/spin3b8804.js','biz_common/utils/norefererimg.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/biz_common/utils/norefererimg3b8804.js','biz_common/utils/sha1.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/biz_common/utils/sha13b8804.js','biz_common/utils/asyncJs.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/biz_common/utils/asyncJs3b8804.js','biz_common/utils/format_ori_check_result.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/biz_common/utils/format_ori_check_result3b8804.js','biz_common/utils/wxgspeedsdk.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/biz_common/utils/wxgspeedsdk3b8804.js','biz_common/utils/cookie.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/biz_common/utils/cookie3b8804.js','biz_common/utils/http.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/biz_common/utils/http3b8804.js','biz_common/utils/geolocation.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/biz_common/utils/geolocation3b8804.js','biz_common/utils/report.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/biz_common/utils/report3b8804.js','biz_common/utils/emoji_data.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/biz_common/utils/emoji_data3b8804.js','biz_common/xss.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/biz_common/xss3b8804.js','biz_common/jquery.validate.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/biz_common/jquery.validate3b8804.js','biz_common/jquery-1.9.1.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/biz_common/jquery-1.9.13b8804.js','biz_common/tmpl.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/biz_common/tmpl3b8804.js','biz_common/base64.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/biz_common/base643b8804.js','biz_common/underscore.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/biz_common/underscore3b8804.js','biz_common/jquery.ui/jquery.ui.sortable.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/biz_common/jquery.ui/jquery.ui.sortable3b8804.js','biz_common/jquery.ui/jquery.ui.draggable.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/biz_common/jquery.ui/jquery.ui.draggable3b8804.js','biz_common/log/jserr.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/biz_common/log/jserr3b8804.js','biz_common/cookie.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/biz_common/cookie3b8804.js','biz_common/test/respTypesTest/index.html.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/biz_common/test/respTypesTest/index.html3b8804.js','biz_common/template-2.0.1-cmd.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/biz_common/template-2.0.1-cmd3b8804.js','biz_common/jquery-2.1.4.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/biz_common/jquery-2.1.43b8804.js','biz_common/framework/localforage.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/biz_common/framework/localforage3b8804.js','promise.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/promise.js','biz_common/framework/drivers/indexeddb.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/biz_common/framework/drivers/indexeddb.js','biz_common/framework/drivers/localstorage.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/biz_common/framework/drivers/localstorage.js','biz_common/framework/drivers/websql.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/biz_common/framework/drivers/websql.js','wxlogin/index.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/wxlogin/index3b8804.js','wxverify/bind_test_account.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/wxverify/bind_test_account3b8804.js','wxverify/wx2dcode.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/wxverify/wx2dcode3b8804.js','wxverify/index.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/wxverify/index3b8804.js','wxverify/bindAccount.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/wxverify/bindAccount3c7e3f.js','wxverify/annual_warning.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/wxverify/annual_warning3b8804.js','wxverify/biz_detail.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/wxverify/biz_detail3df831.js','setting/verify.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/setting/verify3d8e8d.js','setting/pwd.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/setting/pwd3b8804.js','regist/pwd.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/regist/pwd3b8804.js','setting/dev.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/setting/dev3b8804.js','common/wx/region.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/common/wx/region3b8804.js','jweixin-1.3.0.src.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/jweixin-1.3.0.src3b8804.js','tort/appeal_detail.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/tort/appeal_detail3b8804.js','tort/view/OperView.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/tort/view/OperView3b8804.js','tort/view/step_1_view.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/tort/view/step_1_view3b8804.js','tort/view/step_2_view.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/tort/view/step_2_view3b8804.js','tort/view/step_3_view.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/tort/view/step_3_view3b8804.js','tort/view/step_4_view.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/tort/view/step_4_view3b8804.js','tort/appPopup.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/tort/appPopup3b8804.js','tort/view/StepView.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/tort/view/StepView3b8804.js','tort/list.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/tort/list3b8804.js','tort/process.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/tort/process3b8804.js','tort/presenter/StepPresenter.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/tort/presenter/StepPresenter3b8804.js','tort/presenter/OperPresenter.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/tort/presenter/OperPresenter3b8804.js','tort/Model.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/tort/Model3b8804.js','tort/print.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/tort/print3b8804.js','common/wx/qrcheck_msg.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/common/wx/qrcheck_msg3b8804.js','widget/popover.css': 'https://res.wx.qq.com/open/zh_CN/htmledition/res/css/widget/popover3b8804.css','common/qq/Class.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/common/qq/Class3b8804.js','widget/processor_bar.css': 'https://res.wx.qq.com/open/zh_CN/htmledition/res/css/widget/processor_bar3dd68c.css','common/qq/queryString.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/common/qq/queryString3b8804.js','widget/qrcode_check.css': 'https://res.wx.qq.com/open/zh_CN/htmledition/res/css/widget/qrcode_check3b8804.css','common/qq/hotkey.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/common/qq/hotkey3b8804.js','widget/pagination.css': 'https://res.wx.qq.com/open/zh_CN/htmledition/res/css/widget/pagination3b8804.css','common/wx/qrcheck2.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/common/wx/qrcheck23b8804.js','widget/qrcheck.css': 'https://res.wx.qq.com/open/zh_CN/htmledition/res/css/widget/qrcheck3b8804.css','widget/processor.css': 'https://res.wx.qq.com/open/zh_CN/htmledition/res/css/widget/processor3b8804.css','common/wx/overseasList.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/common/wx/overseasList3b8804.js','common/wx/messenger.method.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/common/wx/messenger.method3b8804.js','common/wx/messenger.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/common/wx/messenger3b8804.js','common/wx/stopMultiRequest.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/common/wx/stopMultiRequest3b8804.js','widget/verifycode.css': 'https://res.wx.qq.com/open/zh_CN/htmledition/res/css/widget/verifycode3b8804.css','common/qq/mask.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/common/qq/mask3b8804.js','common/lib/MockJax.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/common/lib/MockJax3b8804.js','common/lib/jquery.ui.draggable.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/common/lib/jquery.ui.draggable3b8804.js','common/wx/openLogin.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/common/wx/openLogin3b8804.js','common/qq/jquery.plugin/Cookie.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/common/qq/jquery.plugin/Cookie3b8804.js','common/lib/datepicker.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/common/lib/datepicker3b8804.js','widget/datepicker.css': 'https://res.wx.qq.com/open/zh_CN/htmledition/res/css/widget/datepicker3b8804.css','common/lib/spin.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/common/lib/spin3b8804.js','common/lib/swfobject.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/common/lib/swfobject3b8804.js','common/lib/template.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/common/lib/template3b8804.js','common/lib/jquery.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/common/lib/jquery3b8804.js','common/lib/uploadify.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/common/lib/uploadify3b8804.js','common/qq/pwd.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/common/qq/pwd3b8804.js','common/qq/events.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/common/qq/events3b8804.js','common/qq/jquery.plugin/ZeroClipboard.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/common/qq/jquery.plugin/ZeroClipboard3b8804.js','common/qq/jquery.plugin/serializeObject.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/common/qq/jquery.plugin/serializeObject3b8804.js','plugin/tpl/submit_pay_list.html.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/plugin/tpl/submit_pay_list.html3b8804.js','plugin/tpl/submit_pay.html.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/plugin/tpl/submit_pay.html3b8804.js','cardticket/apply_logo.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/cardticket/apply_logo3b8804.js','page/cardticket/apply_widget_form.css': 'https://res.wx.qq.com/open/zh_CN/htmledition/res/css/page/cardticket/apply_widget_form3b8804.css','cardticket/common_template_helper.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/cardticket/common_template_helper3b8804.js','cardticket/common_validate.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/cardticket/common_validate3b8804.js','cardticket/apply_index.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/cardticket/apply_index3b8804.js','cardticket/apply_card.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/cardticket/apply_card3b8804.js','cardticket/apply_jsapi.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/cardticket/apply_jsapi3b8804.js','jweixin-1.3.2.src.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/jweixin-1.3.2.src3b8804.js','web/create.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/web/create3b8804.js','web/detail.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/web/detail3b8804.js','web/modify.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/web/modify3b8804.js','wxjump/index.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/wxjump/index3b8804.js','public/wxverify/step2.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/public/wxverify/step23b8804.js','public/wxverify/entreg.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/public/wxverify/entreg3b8804.js','public/wxverify/mediaentreg.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/public/wxverify/mediaentreg3b8804.js','public/wxverify/govreg.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/public/wxverify/govreg3b8804.js','public/wxverify/nonprofitreg.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/public/wxverify/nonprofitreg3b8804.js','public/wxverify/civilianreg.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/public/wxverify/civilianreg3b8804.js','public/wxverify/profitablereg.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/public/wxverify/profitablereg3b8804.js','public/wxverify/shopreg.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/public/wxverify/shopreg3b8804.js','public/wxverify/socialreg.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/public/wxverify/socialreg3b8804.js','public/wxverify/mediareg.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/public/wxverify/mediareg3b8804.js','public/wxverify/artistreg.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/public/wxverify/artistreg3b8804.js','public/wxverify/publicservice.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/public/wxverify/publicservice3b8804.js','public/wxverify/init.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/public/wxverify/init3b8804.js','public/wxverify/Step.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/public/wxverify/Step3b8804.js','public/wxverify/validateExtend.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/public/wxverify/validateExtend3b8804.js','common/qq/prototype.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/common/qq/prototype3b8804.js','public/wxverify/step3.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/public/wxverify/step33b8804.js','public/wxverify/commonreg.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/public/wxverify/commonreg3d1864.js','public/wxverify/supplement_verify_info.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/public/wxverify/supplement_verify_info3b8804.js','public/wxverify/index.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/public/wxverify/index3b8804.js','public/wxverify/step1.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/public/wxverify/step13b8804.js','public/wxverify/step4.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/public/wxverify/step43b8804.js','public/wxverify/step5.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/public/wxverify/step53b8804.js','public/wxverify/invoice_edit.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/public/wxverify/invoice_edit3b8804.js','public/wxverify/detail.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/public/wxverify/detail3b8804.js','public/wxverify/refill.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/public/wxverify/refill3b8804.js','public/wxverify/confirmName.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/public/wxverify/confirmName3b8804.js','public/service/pay.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/public/service/pay3b8804.js','public/service/order.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/public/service/order3b8804.js','public/service/detail.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/public/service/detail3b8804.js','jweixin-1.0.0.src.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/jweixin-1.0.0.src3b8804.js','jweixin-1.1.0.src.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/jweixin-1.1.0.src3b8804.js','payApply/businessMenu.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/payApply/businessMenu3b8804.js','payApply/index.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/payApply/index3b8804.js','payApply/businessInfo.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/payApply/businessInfo3b8804.js','payApply/fiance.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/payApply/fiance3b8804.js','payApply/baseInfo.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/payApply/baseInfo3b8804.js','statistics/analysis.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/statistics/analysis3b8804.js','regist/reset.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/regist/reset3b8804.js','regist/regist2.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/regist/regist23ec9ba.js','regist/regist.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/regist/regist3b8804.js','regist/forget.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/regist/forget3b8804.js','regist/upgrade.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/regist/upgrade3b8804.js','resource/resMenu.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/resource/resMenu3b8804.js','resource/resList.js': 'https://res.wx.qq.com/open/zh_CN/htmledition/js/resource/resList3b8804.js'};</script>
+    <script type="text/javascript">
+    Report.point[21]=+new Date();
+</script>
+<script type="text/javascript" src="https://res.wx.qq.com/open/zh_CN/htmledition/js/sea3b8804.js"></script>
+<script type="text/javascript" src="https://res.wx.qq.com/open/zh_CN/htmledition/js/common/lib3b8804.js"></script>
+<script type="text/javascript" charset="utf-8">
+    
+    window.wx={
+        T:function (str, data){
+           return template.compile(str)(data);
+        },
+        url:function(url){
+            if(url.indexOf("?")>-1){
+                url+="&token=da4fc6ae431d4d41ce04b2ad87acfe1fe4eac4bf&lang=zh_CN"
+            }else{
+                url+="?token=da4fc6ae431d4d41ce04b2ad87acfe1fe4eac4bf&lang=zh_CN"
+            }
+            return url;
+        },
+        data:{
+            t:"da4fc6ae431d4d41ce04b2ad87acfe1fe4eac4bf",
+            ticket:jQuery.cookie("ticket"),
+            lang:'zh_CN'||getCookie('mm_lang')||"zh_CN",
+            param:["&token=da4fc6ae431d4d41ce04b2ad87acfe1fe4eac4bf",'&lang=zh_CN'].join(""),
+            user_name:jQuery.cookie("ticket_id"),
+            nick_name:"lxay92@163.com"
+        },
+        getUrl:function(name){
+            var match=(window.location+"&").match(new RegExp("(?:\\?|\\&)"+name+"=(.*?)\\&"));
+            if(match&&match[1]){
+                return String(match[1]).html(true);
+            }
+        },
+        fakeId:'lxay92@163.com', 
+        fake_id: '3565341499',
+        token:"da4fc6ae431d4d41ce04b2ad87acfe1fe4eac4bf",
+        path:{
+            webuploader : "https://res.wx.qq.com/open/zh_CN/htmledition/res/swf/biz_web/webuploader3b8804.swf",
+            zeroClipboard_new : "https://res.wx.qq.com/open/zh_CN/htmledition/res/swf/biz_web/ZeroClipboard_new3b8804.swf" 
+        },
+        wxverify : {
+            annual_review : "0",
+            expired_time : "1544264574"
+        },
+        jslog : function(){}
+    };
+
+
+    
+    seajs.use("common/wx/route");
+
+    
+    jQuery("#loginBar").on('click', '#loginBarBt', function(event) {
+        var module=seajs.cache[seajs.resolve("common/wx/openLogin")];
+        if(!module){
+            seajs.use("common/wx/openLogin",function(m){
+                m.main();
+            });
+        }else{
+            module.exports.main();
+        }
+    });
+
+
+    $(".jsLangSelect[value='"+wx.data.lang+"']").parent().addClass('selected');
+    jQuery(".jsLangSelect").click(function(event) {
+        var lang=$(this).val();
+        $(".jsLangLabel").removeClass('selected');
+        $(this).parent(".jsLangLabel").addClass('selected');
+        if(lang==wx.data.lang){
+            return;
+        }
+        
+        if(wx.data.t){
+            jQuery.ajax({
+                url: '/cgi-bin/modifyprofile?action=setlang',
+                type: 'post',
+                data: {
+                    lang: lang,
+                    token: wx.data.t
+                },
+            })
+            .done(function() {
+                location.reload();
+            })
+        
+        }else{
+            _cookie("mm_lang",lang);
+            
+            if(!new RegExp("mm_lang="+lang).test(document.cookie)){
+                BJ_REPORT&&BJ_REPORT.monitor(118,147,document.cookie)
+            }
+            location.href=location.href.replace(/lang=[^\&]*/,"lang="+lang);
+        }
+
+    });
+
+    function _cookie(key, value, days){
+        days = days || 30;
+        var exp  = new Date();
+
+        exp.setTime(exp.getTime() + days*24*60*60*1000);
+
+        document.cookie = key + "="+ escape(value) + ";path=/;expires=" + exp.toGMTString() ;
+    }
+
+    function getCookie(name) {
+        var value = '; ' + document.cookie;
+        var parts = value.split('; ' + name + '=');
+        if (parts.length == 2) return parts.pop().split(';').shift();
+        else return '';
+    }
+
+         jQuery("#biz_qrcode_a").hover(function(e){
+        jQuery("#biz_qrcode_div").show();
+    },function(e){
+        jQuery("#biz_qrcode_div").hide();
+    });
+
+    
+        if(jQuery("#loginBar").find(".jsNotice").length>0){
+        jQuery.ajax({
+            url:'/cgi-bin/sysnotify?action=count',
+            type:"get",
+            data:{
+                token: wx.token,
+                lang: "zh_CN",
+                f: "json",
+                ajax: "1"
+            },
+            success:function(json){
+                if(json.base_resp.ret==0&&json.count>0){
+                    jQuery(".jsDot").show();
+                }
+            }
+        });
+    }
+        
+    window.nav={
+        selected:function(id){
+            jQuery(".jsNavItem[data-id='"+id+"']").addClass('selected').siblings().removeClass('selected');
+        }
+    };
+
+    
+    if (!window.location.origin) {
+        window.location.origin = window.location.protocol + "//" + window.location.hostname + (window.location.port ? ':' + window.location.port: '');
+    };
+    if(window.location.href.startsWith("http://open.weixin.qq.com")){
+        window.location=window.location.href.replace("http","https");
+    } ;
+    Report.point[22]=+new Date();
+
+    Report.init=function(flag1,flag2,flag3){
+        this.url="http://isdspeed.qq.com/cgi-bin/r.cgi?"+Object.param({
+            flag1:flag1,
+            flag2:flag2,
+            flag3:flag3
+        });
+        this.isReport=true;
+    }
+</script>
+    
+<script type="text/javascript">define('widget/verifycode.css', [], function(){return null;});
+define('widget/qrcode_check.css', [], function(){return null;});
+define('widget/processor_bar.css', [], function(){return null;});
+define('widget/popover.css', [], function(){return null;});</script>
+<script type="text/javascript" src="https://res.wx.qq.com/c/=/open/zh_CN/htmledition/js/tpl/biz_web/ui/checkbox.html3b8804.js,/open/zh_CN/htmledition/js/tpl/verifycode.html3b8804.js,/open/zh_CN/htmledition/js/tpl/qrcheck.html3b8804.js,/open/zh_CN/htmledition/js/common/qq/queryString3b8804.js,/open/zh_CN/htmledition/js/tpl/step.html3dd68c.js,/open/zh_CN/htmledition/js/tpl/checkbox.html3b8804.js,/open/zh_CN/htmledition/js/common/lib/spin3b8804.js,/open/zh_CN/htmledition/js/common/lib/jquery.md53b8804.js,/open/zh_CN/htmledition/js/common/lib/jquery.validate3b8804.js,/open/zh_CN/htmledition/js/plugin/tpl/submit_pay_list.html3b8804.js,/open/zh_CN/htmledition/js/plugin/tpl/submit_pay.html3b8804.js,/open/zh_CN/htmledition/js/biz_web/ui/input/targetips3b8804.js,/open/zh_CN/htmledition/js/biz_web/ui/checkbox3b8804.js,/open/zh_CN/htmledition/js/common/wx/verifycode3b8804.js" ></script>
+<script type="text/javascript" src="https://res.wx.qq.com/c/=/open/zh_CN/htmledition/js/tpl/linktip.html3b8804.js,/open/zh_CN/htmledition/js/common/qq/Class3b8804.js,/open/zh_CN/htmledition/js/tpl/popup.html3b8804.js,/open/zh_CN/htmledition/js/tpl/home/admin_popup.html3b8804.js,/open/zh_CN/htmledition/js/common/wx/qrcheck3b8804.js,/open/zh_CN/htmledition/js/common/wx/Step3dd68c.js,/open/zh_CN/htmledition/js/common/wx/checkbox3b8804.js,/open/zh_CN/htmledition/js/tpl/tooltips.html3b8804.js,/open/zh_CN/htmledition/js/tpl/dialog.html3b8804.js,/open/zh_CN/htmledition/js/common/lib/jquery.ui.draggable3b8804.js,/open/zh_CN/htmledition/js/common/lib/MockJax3b8804.js,/open/zh_CN/htmledition/js/common/qq/mask3b8804.js,/open/zh_CN/htmledition/js/common/lib/json3b8804.js,/open/zh_CN/htmledition/js/biz_web/lib/json3b8804.js,/open/zh_CN/htmledition/js/plugin/submit_pay3b8804.js" ></script>
+<script type="text/javascript" src="https://res.wx.qq.com/c/=/open/zh_CN/htmledition/js/common/wx/linktip3b8804.js,/open/zh_CN/htmledition/js/common/wx/popup3b8804.js,/open/zh_CN/htmledition/js/manage/appSecretDialog3b8804.js,/open/zh_CN/htmledition/js/manage/resetAppsecret3b8804.js,/open/zh_CN/htmledition/js/common/wx/tooltips3b8804.js,/open/zh_CN/htmledition/js/common/wx/dialog3b8804.js,/open/zh_CN/htmledition/js/common/wx/Cgi3b8804.js,/open/zh_CN/htmledition/js/common/wx/time3b8804.js,/open/zh_CN/htmledition/js/common/wx/Tips3b8804.js,/open/zh_CN/htmledition/js/common/qq/jquery.plugin/zclip3b8804.js,/open/zh_CN/htmledition/js/manage/plugin_detail3e2422.js" ></script>
+<script type="text/html" id="checktpl">
+  	<div class="page_msg simple large default ">
+        <div class="inner group">
+             <div class="waiting_status js_doing"><img src="https://res.wx.qq.com/open/zh_CN/htmledition/res/img/icon/common/icon32_loading_light3b8804.gif" />
+            	<span>接入检测中，请耐心等待，可能需要最长5分钟</span>
+             </div>
+             <div class="wrp_status sucess js_suc" style="display:none">
+                <span><i class="icon_msg_mini success"></i>&nbsp;&nbsp;检测成功，点击确定以提交全网发布，提交后请耐心等待审核</span>
+            </div>
+            <div class="wrp_status fail js_fail" style="display:none">
+                <span><i class="icon_msg_mini info"></i>&nbsp;&nbsp;检测失败，请修改后再重新提交</span>
+            </div>
+            <div class="wrp_status fail js_err" style="display:none">
+                <span class=""><i class="icon_msg warn"></i></span>
+              	<div class="msg_content "><h4>系统错误，请重试</h4></div>
+            </div>
+            <div class="js_tbl table_wrp wrp_connect_con" style="display:none">
+            </div>
+            <div class="ft_links js_suc js_fail" style="display:none">
+                <p><a href="https://open.weixin.qq.com/cgi-bin/showdocument?action=dir_list&t=resource/res_list&verify=1&id=open1419318611&lang=zh_CN" target="_blank">全网发布接入检测</a></p>
+                <p><a href="https://open.weixin.qq.com/cgi-bin/showdocument?action=dir_list&t=resource/res_list&verify=1&id=open1419318479&lang=zh_CN" target="_blank">消息加解密接入指引</a></p>
+            </div>
+        </div>
+        <div class="tool_bar border tc js_suc" style="display:none">
+            <a href="javascript:;" class="btn btn_default js_suc_canc">取消</a>
+            <a href="javascript:;" class="btn btn_primary js_suc_sure">确定</a>
+        </div>
+  	</div>
+</script>
+<script type="text/html" id="tabletpl">
+    <table class="table" cellspacing="0">
+        <thead class="thead">
+            <th class="table_cell">名称</th>
+            <th class="table_cell">状态</th>
+        </thead>
+        <tbody class="tbody">
+        {each data as o idx}
+            <tr>
+                <td class="table_cell">{o.name}</td>
+                {if o.pass}
+                <td class="table_cell">成功</td>
+                {else}
+                <td class="table_cell msg_err">失败</td>
+                {/if}
+            </tr>
+        {/each}
+        </tbody>
+    </table>
+</script>
+<script type="text/html" id="headtpl">
+    <div class="top_info">
+        <div class="top_action">
+            {if statuscode == 2}
+            <div class="app_opr">
+                <a class="btn btn_primary jsUrlLink" href="javascript:" data-url="manage/plugin_modify" data-param="appid={appid}" target="self">修改平台</a><i class="icon_msg_mini ask pay_icon js_hovertip" data-content="如只需修改白名单IP地址、测试公众号，可以在下方快速修改。"></i>
+            </div>
+            {/if}
+            {if statuscode == 3}
+            <div class="app_opr">
+                <a class="btn btn_default js_promp" href="javascript:;">修改平台</a><i class="icon_msg_mini ask pay_icon js_hovertip" data-content="如只需修改白名单IP地址、测试公众号，可以在下方快速修改。"></i>
+                {if args_empty > 0}
+                <div class="bubble_tips bubble_right">
+                    <div class="bubble_tips_inner">
+                        <p><a class="tdn jsUrlLink" href="javascript:" data-url="manage/plugin_modify" data-param="appid={appid}" target="self">补充{args_empty_name}</a>后，才可以全网发布</p>
+                    </div>
+                    <i class="bubble_tips_arrow out"></i>
+                    <i class="bubble_tips_arrow in"></i>
+                </div>
+                {if status == 12}
+                <a href="javascript:void(0);" data-id="{appid}" class="btn btn_primary js_republish btn_disabled">覆盖现网全网发布</a>
+                {else}
+                <a href="javascript:void(0);" data-id="{appid}" class="btn btn_primary js_publish btn_disabled">全网发布</a>
+                {/if}
+                {else}
+                {if status == 12}
+                <a href="javascript:void(0);" data-id="{appid}" class="btn btn_primary js_republish">覆盖现网全网发布</a>
+                {else}
+                <a href="javascript:void(0);" data-id="{appid}" class="btn btn_primary js_publish">全网发布</a>
+                {/if}
+                {/if}
+                {if payremind}
+                <a class="btn btn_default js_pay_submit" href="javascript:;">获取微信支付服务商资质</a><i class="icon_msg_mini ask pay_icon js_hovertip" data-content="获取微信支付服务商资质后，才可以帮助公众号进行微信支付开发。"></i>
+                {/if}
+            </div>
+            {/if}
+            {if statuscode == 5}
+            <div class="app_opr">
+                <a class="btn btn_primary jsUrlLink" href="javascript:" data-url="manage/plugin_modify" data-param="appid={appid}" target="self">修改平台</a><i class="icon_msg_mini ask pay_icon js_hovertip" data-content="如只需修改白名单IP地址、测试公众号，可以在下方快速修改。"></i>
+            </div>
+            {/if}
+            {if statuscode == 6}
+            <div class="app_opr">
+                {if pi_empty}
+                <div class="bubble_tips bubble_right">
+                    <div class="bubble_tips_inner">
+                        <p>请<a class="tdn jsUrlLink" href="javascript:" data-url="manage/plugin_modify" data-param="appid={appid}" target="self">补充平台所属的行业</a></p>
+                    </div>
+                    <i class="bubble_tips_arrow out"></i>
+                    <i class="bubble_tips_arrow in"></i>
+                </div>
+                {/if}
+                <a class="btn btn_primary js_promp" href="javascript:;">修改平台</a><i class="icon_msg_mini ask pay_icon js_hovertip" data-content="如只需修改白名单IP地址、测试公众号，可以在下方快速修改。"></i>
+                {if payremind}
+                <a class="btn btn_default js_pay_submit" href="javascript:;">获取微信支付服务商资质</a><i class="icon_msg_mini ask pay_icon js_hovertip" data-content="获取微信支付服务商资质后，才可以帮助公众号进行微信支付开发。"></i>
+                {/if}
+            </div>
+            {/if}
+        </div>
+        <div class="page_msg mp_style small">
+            <div class="inner">
+            <span class="msg_icon_wrp">
+                <i class="icon_msg {statusclass}"></i>
+            </span>
+                <div class="msg_content">
+                    <h4>{statusdesc}</h4>
+                    {if showtip}
+                    <p>{tiptxt}</p>
+                    {/if}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="check_status_wrp">
+        <div class="check_status_box">
+            <div class="icon_wrp">
+                <img class="app_icon" src="{icon_url}" alt="{name}" />
+            </div>
+            <div class="check_status">
+                <p class="app_name">{name}</p>
+                {if showid}
+                <div class="app_infos">
+                    <p>AppID:{appid}</p>
+                    <p>AppSecret：                        {if hasAppSecret == 1}
+                        <a href="javascript:;" class="js_reset_appsecret reset_appS" data-appid="{appid}">重置</a>
+                        <i class="icon_msg_mini ask js_ask"></i>
+                        {else}
+                        <a href="javascript:;" class="js_build_appsecret reset_appS" data-appid="{appid}">生成</a>
+                        {/if}
+                    </p>
+                </div>
+                {/if}
+            </div>
+        </div>
+
+    </div>
+    <div class="app_info_wrp">
+        {if advanced_component_apply_status != 0}
+        <div class="info_box advance_power">
+            <h3>高级资质</h3>
+            <div class="table_wrap">
+                <table class="table" cellspacing="0">
+                    <tbody class="tbody">
+                        <tr>
+                            <td class="table_cell tl">资质名称</td>
+                            <td class="table_cell tl">资质介绍</td>
+                            <td class="table_cell tl">状态</td>
+                            <td class="table_cell tr">操作</td>
+                        </tr>
+                        <tr>
+                            <td class="table_cell tl">高级第三方平台</td>
+                            <td class="table_cell tl">获得高级第三方平台资质后，可以为公众号代理注册和认证。</td>
+                            <td class="table_cell tl">{advanced_status_word}</td>
+                            <td class="table_cell tr">
+                                {if advanced_component_apply_status == 1 || advanced_component_apply_status == 4}
+                                    <a href="javascript:;" class="jsUrlLink" data-url="manage/apply_advance_tmpl" data-param="appid={appid}">
+                                        申请开通                                    </a>
+                                {else}
+                                    --                                {/if}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        {/if}
+        <div class="info_box first">
+            <h3>基本信息 </h3>
+            <div class="info_list">
+                <div class="info_item">
+                    <label>平台名称</label>
+                    <div class="info_content">{name}</div>
+                </div>
+                <div class="info_item">
+                    <label>业务标签</label>
+                    <div class="info_content js_tags"></div>
+                </div>
+                <div class="info_item">
+                    <label>平台介绍</label>
+                    <div class="info_content">{desc}</div>
+                </div>
+                <div class="info_item">
+                    <label>官方网站</label>
+                    <div class="info_content">{site}</div>
+                </div>
+                <div class="info_item">
+                    <label>平台图片</label>
+                    <div class="info_content">
+                        <img src="{icon_url}" alt="平台图片" class="app_icon">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="info_box powers_box">
+            <h3 class="extra_title">权限集                <a class="extra_info" href="https://open.weixin.qq.com/cgi-bin/showdocument?action=dir_list&t=resource/res_list&verify=1&id=open1419318459&lang=zh_CN" target="_blank" >权限集说明</a>
+            </h3>
+            <div class="info_list">
+            {each roles_list as role idx}
+                {if role.selected == 1}
+                <div class="info_item">
+                    <label>{role.name}</label>
+                <div class="info_content">
+                    {role.desc}
+                    {if can_apply_to_be_agent==1 && role.type==8 && status>=6}
+                        {if agent_apply_check_status==3}
+                        <a href="/cgi-bin/cardagent?action=list_child_merchant&t=manage/card_business_manage&offset=0&limit=10&appid=wx925f0563bbe41146&lang=zh_CN&token=da4fc6ae431d4d41ce04b2ad87acfe1fe4eac4bf">子商户管理</a>
+                        {else}
+                        <a href="/cgi-bin/cardagent?action=list_agent_apply&t=manage/card_powered_apply&appid=wx925f0563bbe41146&lang=zh_CN&token=da4fc6ae431d4d41ce04b2ad87acfe1fe4eac4bf">卡券第三方强授权功能申请</a>
+                        {/if}
+                        <i class="icon18_msg ask js_card_hovertip"></i>
+                    {/if}
+                    </div>
+                </div>
+                {/if}
+            {/each}
+            </div>
+        </div>
+        <div class="info_box dev_box">
+            <h3>开发资料</h3>
+            <div class="info_list">
+                <div class="wrp_info_item first">
+                    <div class="frm_title">授权登录相关</div>
+                    <div class="info_item">
+                        <label>登录授权的发起页域名</label>
+                        <div class="info_content">{auth_domain}</div>
+                    </div>
+                    <div class="info_item">
+                        <label>授权测试公众号列表</label>
+                        <div class="info_content">{raw_white_acct} <a href="javascript:;" id="js_fastmodify_acct">修改</a></div>
+                    </div>
+                    <div class="info_item">
+                        <label>授权事件接收URL</label>
+                        <div class="info_content">{ticket_url}</div>
+                    </div>
+                </div>
+                <div class="wrp_info_item">
+                    <div class="frm_title">授权后实现业务</div>
+                    <div class="info_item">
+                        <label>消息校验Token</label>
+                        <div class="info_content">{token}</div>
+                    </div>
+                    <div class="info_item">
+                        <label>消息加解密Key</label>
+                        <div class="info_content">{symmetric_key}</div>
+                    </div>
+
+                    <div class="info_item">
+                        <label>消息与事件接收URL</label>
+                        <div class="info_content">{msg_url}</div>
+                    </div>
+                    {if !!sns_domain}
+                    <div class="info_item">
+                        <label>公众号开发域名</label>
+                        <div class="info_content">{sns_domain}</div>
+                    </div>
+                    {/if}
+                    {if !!wxa_server_domain}
+                    <div class="info_item">
+                        <label>小程序服务器域名</label>
+                        <div class="info_content">{wxa_server_domain}</div>
+                    </div>
+                    {/if}
+                    {if !!jump_h5_domain}
+                    <div class="info_item">
+                        <label>小程序业务域名</label>
+                        <div class="info_content">{jump_h5_domain}</div>
+                    </div>
+                    {/if}
+                </div>
+
+                <div class="wrp_info_item">
+                    <div class="frm_title">其他</div>
+                    <div class="info_item">
+                        <label>白名单IP地址列表</label>
+                        <div class="info_content">{raw_white_ip} <a href="javascript:;" id="js_fastmodify_ip">修改</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="weapp_box" style="display:none;" class="info_box weapp_box">
+        </div>
+        <div id="code_box" style="display:none;" class="info_box code_box">
+        </div>
+    </div>
+</script>
+
+<script type="text/html" id="weapp_tpl">
+    <h3 class="extra_title">
+        绑定的小程序    </h3>
+    <div class="info_list">
+        <div class="label_tab">
+            <a data-url="/cgi-bin/frame?alert=1&t=wxverify/bind_account_tmpl&lang=zh_CN&token=da4fc6ae431d4d41ce04b2ad87acfe1fe4eac4bf&type=weapp2bizplugin&opid={opid}&appid={appid}" href="javascript:;" class="js_addWeapp btn btn_primary {if (limit-list.length)<=0} btn_disabled {/if}" target="self">
+                <span>添加开发小程序</span>
+            </a>
+
+            <div class="bubble_tips bubble_left">
+                <div class="bubble_tips_inner">
+                    <p class="mass_send_tips" id="tips">还可添加<span id="webapp_remain">{mymax((limit-list.length),0)}</span>个小程序</p>
+                </div>
+                <i class="bubble_tips_arrow out"></i>
+                <i class="bubble_tips_arrow in"></i>
+           </div>
+        </div>
+        <div class="table_wrp">
+            <table class="table" cellspacing="0">
+                <thead class="thead">
+                <tr>
+                    <th class="table_cell  " style="width:30%;">小程序名称</th>
+                    <th class="table_cell  " style="width:25%;">AppID</th>
+                    <th class="table_cell  " style="width:25%;">添加时间</th>
+                    <th class="table_cell  no_extra" style="width:20%;">操作</th>
+                </tr>
+                </thead>
+                <tbody class="tbody">
+                {if list.length==0}
+                <tr><td colspan="4"><p class="empty_tips">暂无数据</p></td></tr>
+                {else}
+                {each list as d i}
+                <tr class="js_weapp_tr">
+                    <td class="table_cell ">
+                        {d.nickname}
+                    </td>
+                    <td class="table_cell ">
+                        {d.appid}
+                    </td>
+                    <td class="table_cell ">
+                        {d.time_str}
+                    </td>
+                    <td class="table_cell ">
+                        <a class="js_unbind" data-weappid="{d.appid}" data-opid="{opid}" href="javascript:;">解绑</a>
+                    </td>
+                </tr>
+                {/each}
+                {/if}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</script>
+
+<script type="text/html" id="code_lib_detail_tpl">
+    <div class="app_info_wrp">
+        <div class="info_box first">
+            <h3>代码详情</h3>
+            <div class="info_list">
+                <div class="info_item">
+                    <label>版本号</label>
+                    <div class="info_content">{user_version}</div>
+                </div>
+                <div class="info_item">
+                    <label>描述</label>
+                    <div class="info_content">{user_desc}</div>
+                </div>
+                <div class="info_item">
+                    <label>TemplateID</label>
+                    <div class="info_content js_codid" data-codeid="{template_id}">
+                        {template_id}
+                        &nbsp;
+                        <a href="javascript:void(0);" class="js_copy">复制</a>
+                    </div>
+                </div>
+                <div class="info_item">
+                    <label>来源小程序</label>
+                    <div class="info_content">{source_weapp_name}</div>
+                </div>
+                <div class="info_item">
+                    <label>小程序AppID</label>
+                    <div class="info_content">{source_weapp_appid}</div>
+                </div>
+                <div class="info_item">
+                    <label>添加时间</label>
+                    <div class="info_content">{create_time_str}</div>
+                </div>
+                <div class="info_item">
+                    <label>开发者</label>
+                    <div class="info_content">{developer_username}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="tool_bar tc with_form">
+        <a href="javascript:void(0);" class="btn btn_default js_back">返回</a>
+        <a href="javascript:void(0);" data-templateid={template_id} class="btn btn_warn js_del">从模板库删除</a>
+    </div>
+</script>
+
+<script type="text/html" id="code_lib_tpl">
+    <p class="js_lib_desc table_desc">
+    最多可添加<span>{code_library_limit*1}</span>个，还可添加<span>{mymax(0,code_library_limit-code_library.length)}</span>个    </p>
+    <table class="table" cellspacing="0">
+        <thead class="thead">
+        <tr>
+            <th class="table_cell  " style="width:12%;">版本号</th>
+            <th class="table_cell  " style="width:30%;">描述</th>
+            <th class="table_cell  " style="width:30%;">TemplateID</th>
+            <th class="table_cell  " style="width:18%;">添加到模板库时间</th>
+            <th class="table_cell  no_extra" style="width:10%;">操作</th>
+        </tr>
+        </thead>
+        <tbody class="tbody">
+        {if code_library.length==0}
+        <tr><td colspan="5"><p class="empty_tips">暂无数据</p></td></tr>
+        {else}
+        {each code_library as d i}
+        <tr data-templateid="{d.template_id}" class="js_code_lib_tr">
+            <td class="table_cell ">
+                {d.user_version}
+            </td>
+            <td class="table_cell ">
+                {d.user_desc}
+            </td>
+            <td class="table_cell ">
+                {d.template_id}
+            </td>
+            <td class="table_cell ">
+                {d.create_time_str}
+            </td>
+            <td class="table_cell ">
+                <a class="js_codeListDetail" data-templateid="{d.template_id}" href="javascript:;">详情</a>
+            </td>
+        </tr>
+        {/each}
+        {/if}
+        </tbody>
+    </table>
+</script>
+
+<script type="text/html" id="code_box_tpl">
+    <h3>小程序模板库</h3>
+    <div class="info_list">
+        <div class="table_wrp">
+        <div class="table_opr">
+            <ul class="tab_nav_list">
+                <li data-id="draft" class="js_code_tab tab_nav_item selected">
+                    <a href="javascript:void(0);">
+                    草稿箱(<span id="code_draft_len">{code_draft.length}</span>)                </a>
+                </li>
+                <li data-id="lib" class="js_code_tab tab_nav_item">
+                    <a href="javascript:void(0);">
+                    小程序模板库(<span id="code_lib_len">{code_library.length}</span>)                    </a>
+                </li>
+            </ul>
+        </div>
+        <div id="code_draft_table" class="js_code_table">
+            <p class="js_draft_desc table_desc">每个小程序只保留最新一次的上传记录</p>
+            <table class="table" cellspacing="0">
+                <thead class="thead">
+                <tr>
+                    <th class="table_cell  " style="width:12%;">版本号</th>
+                    <th class="table_cell  " style="width:20%;">描述</th>
+                    <th class="table_cell  " style="width:15%;">来源小程序</th>
+                    <th class="table_cell  " style="width:18%;">最近上传开发者</th>
+                    <th class="table_cell  " style="width:17%;">最近提交时间</th>
+                    <th class="table_cell  no_extra" style="width:18%;">操作</th>
+                </tr>
+                </thead>
+                <tbody class="tbody">
+                {if code_draft.length==0}
+                <tr><td colspan="6"><p class="empty_tips">暂无数据</p></td></tr>
+                {else}
+                {each code_draft as d i}
+                <tr class="js_code_draft_tr">
+                    <td class="table_cell ">
+                        {d.user_version}
+                    </td>
+                    <td class="table_cell ">
+                        {d.user_desc}
+                    </td>
+                    <td class="table_cell ">
+                        {d.source_weapp_name}
+                    </td>
+                    <td class="table_cell ">
+                        {d.developer_username}
+                    </td>
+                    <td class="table_cell ">
+                        {d.update_time_str}
+                    </td>
+                    <td class="table_cell ">
+                        <a class="js_add2lib right_gap" data-openid="{d.openid}" href="javascript:;">添加到模板库</a>
+                        <a class="js_delCodeDraft" data-openid="{d.openid}" href="javascript:;">删除</a>
+                    </td>
+                </tr>
+                {/each}
+                {/if}
+                </tbody>
+            </table>
+        </div>
+        <div id="code_lib_table" style="display:none;" class="js_code_table">
+        </div>
+    </div>
+    </div>
+
+
+</script>
+
+<script type="text/html" id="tpl_tags_tag">
+    <span class="tags_item with_action without_mb">{tag}</span>
+</script>
+
+<script id="card_tikect_apply_msg_tpl" type="text/html">
+    第三方平台，可协助未认证公众号接入微信卡券    <br />
+    <br />
+    为了降低商户接入卡券难度，微信开放平台针对“第三方平台”账号类型推出“卡券第三方强授权”功能。具备开发能力的开发者，提交相关资质并审核通过后，可协助未认证公众号商户快速接入并使用卡券功能。    <br />
+    点击查看    <a href="https://mp.weixin.qq.com/cgi-bin/announce?action=getannouncement&key=1464187172&version=1&lang=zh_CN&platform=2" target="_blank">卡券第三方强授权指引文档</a>
+    ，获取详细接入流程及接口文档。</script>
+
+<script id="tpl_fastmodify_msg" type="text/html">
+    <div class="fastmodify_msg">
+        <p>现已支持在平台详情页中快速修改测试公众号和白名单IP地址，无需审核，直接修改成功。</p>
+        <p><img src="/open/zh_CN/htmledition/res/img/manage/manage_fastmodify_sample.png" alt=""></p>
+    </div>
+</script>
+
+<script id="tpl_fastmodify_acct" type="text/html">
+    <textarea class="input"></textarea>
+    <div class="warn">最多可添加10个测试公众号</div>
+    <div class="desc">在全网发布之前，仅该列表内公众号才可进行授权，以便测试。请填写公众号的原始ID（可在公众平台网站的公众号设置页找到），最多10个，以英文“;”隔开。</div>
+</script>
+
+<script id="tpl_fastmodify_ip" type="text/html">
+    <textarea class="input"></textarea>
+    <div class="warn">最多可添加100个白名单IP地址</div>
+    <div class="desc">仅当开发者IP地址在该列表中时，才被允许调用相关接口。最多填写100个IP地址，以英文“;”隔开。</div>
+</script>
+
+<script type="text/javascript">
+document.title="应用详情 - 微信开放平台";
+window.wx.has_main_admin = "1" * 1 || "0";
+var RetData = {
+    advanced_component_apply_status:"0" || "0", 
+    pay_white: "0" || "0",
+    pay_qualification: "0" || "0",
+    loading_img: "https://res.wx.qq.com/open/zh_CN/htmledition/res/img/icon/common/icon32_loading_light3b8804.gif",
+    name: "open开放平台05",
+    desc: "助理用户营销活动",
+    site: "www.open.com",
+    icon_url: "http://mmbiz.qpic.cn/mmbiz_png/l2DoHMKIFnkfhvAPYjKVazeL0V3SLlOiaSFPg3H6iazaZRg7VeY68ceqSnjD2aOtCDCu32DZfyuJUXVhNkpQp7VQ/0?wx_fmt=png",
+    token: "wechat",
+    auth_domain: "open.l23.pw",
+    ticket_url: "http://open.l23.pw/ticket",
+    msg_url: "http://open.l23.pw/notify/$APPID$",
+    raw_white_ip: "47.104.154.233",
+    raw_white_acct: "gh_9abb9c369ac6",
+    status: "3",
+    appid: "wx925f0563bbe41146",
+    app_secret: "",
+    hasAppSecret: "1" || "",
+    sns_domain: "p.html5.qq.com;leiminwang.cn;ds4f8.cn",
+    wxa_server_domain: "",
+    jump_h5_domain: "",
+    symmetric_key: "SsMsLCL5cpcGACm22u3CgE3sp55jgj22EK2qr5SfZNR",
+    check_info: "",
+    show_id: "1",
+    can_apply_to_be_agent : '1'*1||0,
+    agent_apply_check_status : '0'*1||0,
+    primary_industry: "",
+    secondary_industry: "",
+    industry_full_info: {
+                                        '1': '文化传媒'
+                                            ,
+                        '2': '电子商务'
+                                            ,
+                        '3': '政务民生'
+                                            ,
+                        '4': '商业服务'
+                                            ,
+                        '5': '汽车'
+                                            ,
+                        '6': '金融'
+                                            ,
+                        '7': '地产'
+                                            ,
+                        '8': '餐饮'
+                                            ,
+                        '9': '娱乐'
+                                            ,
+                        '10': '美容养生'
+                                            ,
+                        '11': '生活服务'
+                                            ,
+                        '12': '教育'
+                                            ,
+                        '13': '旅游'
+                                            ,
+                        '14': '医疗卫生'
+                                            ,
+                        '15': '游戏'
+                                            ,
+                        '16': '交通'
+                                            ,
+                        '17': '酒店'
+                                            ,
+                        '18': '法律'
+                                            ,
+                        '19': '物流快递'
+                                            ,
+                        '20': '招聘'
+                                            ,
+                        '21': '企业与机构'
+                                            ,
+                        '22': '其他'
+                            },
+    roles_list: [
+                    {
+            type: '1',
+            name: '消息管理权限',
+            desc: '帮助公众号接收用户消息，进行人工客服回复或自动回复',
+            selected: '0'
+        }
+                            ,
+                {
+            type: '15',
+            name: '自定义菜单权限',
+            desc: '帮助公众号使用自定义菜单',
+            selected: '0'
+        }
+                            ,
+                {
+            type: '4',
+            name: '网页服务权限',
+            desc: '帮助公众号实现第三方网页服务和活动',
+            selected: '1'
+        }
+                            ,
+                {
+            type: '7',
+            name: '群发与通知权限',
+            desc: '帮助公众号进行群发和模板消息业务通知',
+            selected: '0'
+        }
+                            ,
+                {
+            type: '2',
+            name: '用户管理权限',
+            desc: '帮助公众号获取用户信息，进行用户管理',
+            selected: '0'
+        }
+                            ,
+                {
+            type: '3',
+            name: '帐号服务权限',
+            desc: '帮助认证、设置公众号，进行帐号管理',
+            selected: '0'
+        }
+                            ,
+                {
+            type: '11',
+            name: '素材管理权限',
+            desc: '帮助公众号管理多媒体素材，用于客服等业务',
+            selected: '0'
+        }
+                            ,
+                {
+            type: '6',
+            name: '微信多客服权限',
+            desc: '帮助公众号使用微信多客服',
+            selected: '0'
+        }
+                            ,
+                {
+            type: '5',
+            name: '微信小店权限',
+            desc: '帮助公众号使用微信小店',
+            selected: '0'
+        }
+                            ,
+                {
+            type: '8',
+            name: '微信卡券权限',
+            desc: '帮助公众号使用微信卡券',
+            selected: '0'
+        }
+                            ,
+                {
+            type: '13',
+            name: '微信门店权限',
+            desc: '帮助公众号使用微信门店',
+            selected: '0'
+        }
+                            ,
+                {
+            type: '9',
+            name: '微信扫一扫权限',
+            desc: '帮助公众号使用微信扫一扫',
+            selected: '0'
+        }
+                            ,
+                {
+            type: '10',
+            name: '微信连WIFI权限',
+            desc: '帮助公众号使用微信连WIFI',
+            selected: '0'
+        }
+                            ,
+                {
+            type: '12',
+            name: '微信摇周边权限',
+            desc: '帮助公众号使用微信摇周边',
+            selected: '0'
+        }
+                            ,
+                {
+            type: '17',
+            name: '帐号管理权限',
+            desc: '帮助小程序获取二维码，进行帐号管理',
+            selected: '0'
+        }
+                            ,
+                {
+            type: '18',
+            name: '开发管理与数据分析权限',
+            desc: '帮助小程序进行功能开发与数据分析',
+            selected: '0'
+        }
+                            ,
+                {
+            type: '19',
+            name: '客服消息管理权限',
+            desc: '帮助小程序接收和发送客服消息',
+            selected: '0'
+        }
+                            ,
+                {
+            type: '22',
+            name: '城市服务接口权限',
+            desc: '帮助城市服务内的服务向用户发送消息，沉淀办事记录，展示页卡及办事结果页',
+            selected: '0'
+        }
+                            ,
+                {
+            type: '23',
+            name: '广告管理权限',
+            desc: '帮助广告主进行微信广告的投放和管理',
+            selected: '0'
+        }
+                            ,
+                {
+            type: '24',
+            name: '开放平台帐号管理权限',
+            desc: '帮助公众号绑定开放平台帐号，实现用户身份打通',
+            selected: '0'
+        }
+                            ,
+                {
+            type: '25',
+            name: '开放平台帐号管理权限',
+            desc: '帮助小程序绑定开放平台帐号，实现用户身份打通',
+            selected: '0'
+        }
+                            ,
+                {
+            type: '26',
+            name: '微信电子发票权限',
+            desc: '帮助公众号使用微信电子发票',
+            selected: '0'
+        }
+                            ,
+                {
+            type: '27',
+            name: '快速注册小程序权限',
+            desc: '帮助公众号快速注册小程序',
+            selected: '0'
+        }
+                            ,
+                {
+            type: '30',
+            name: '小程序基本信息设置权限',
+            desc: '帮助小程序设置名称、头像、简介、类目等基本信息',
+            selected: '0'
+        }
+                            ,
+                {
+            type: '31',
+            name: '小程序认证权限',
+            desc: '帮助小程序申请认证',
+            selected: '0'
+        }
+                            ,
+                {
+            type: '33',
+            name: '小程序管理权限',
+            desc: '可新增关联小程序，并对公众号已关联的小程序进行管理',
+            selected: '0'
+        }
+                            ,
+                {
+            type: '35',
+            name: '微信卡路里权限',
+            desc: '为公众号提供用户卡路里同步、授权查询、兑换功能',
+            selected: '0'
+        }
+                            ,
+                {
+            type: '36',
+            name: '微信卡路里权限',
+            desc: '为小程序提供用户卡路里同步、授权查询、兑换功能',
+            selected: '0'
+        }
+                            ,
+                {
+            type: '37',
+            name: '附近地点权限',
+            desc: '帮助小程序创建附近地点，可设置小程序展示在“附近的小程序”入口中',
+            selected: '0'
+        }
+                            ,
+                {
+            type: '40',
+            name: '插件管理权限',
+            desc: '用于代小程序管理插件的添加和使用',
+            selected: '0'
+        }
+                ],
+    tagData : {
+        info : {
+                                                                                "1000" : {
+                        name : "智能建站",
+                        desc : "",
+                        type : "TAG_TYPE_FUNC"
+                    }
+                                                                            ,
+                                        "1001" : {
+                        name : "账号管理",
+                        desc : "",
+                        type : "TAG_TYPE_FUNC"
+                    }
+                                                                            ,
+                                        "1002" : {
+                        name : "图文消息",
+                        desc : "",
+                        type : "TAG_TYPE_FUNC"
+                    }
+                                                                            ,
+                                        "1003" : {
+                        name : "互动营销",
+                        desc : "",
+                        type : "TAG_TYPE_FUNC"
+                    }
+                                                                            ,
+                                        "1004" : {
+                        name : "分销系统",
+                        desc : "",
+                        type : "TAG_TYPE_FUNC"
+                    }
+                                                                            ,
+                                        "1005" : {
+                        name : "硬件连接",
+                        desc : "",
+                        type : "TAG_TYPE_FUNC"
+                    }
+                                                                            ,
+                                        "1006" : {
+                        name : "地理位置",
+                        desc : "",
+                        type : "TAG_TYPE_FUNC"
+                    }
+                                                                            ,
+                                        "1007" : {
+                        name : "CRM客户管理",
+                        desc : "",
+                        type : "TAG_TYPE_FUNC"
+                    }
+                                                                            ,
+                                        "1008" : {
+                        name : "数据系统",
+                        desc : "",
+                        type : "TAG_TYPE_FUNC"
+                    }
+                                                                            ,
+                                        "1009" : {
+                        name : "行业应用",
+                        desc : "为各行业提供解决方案",
+                        type : "TAG_TYPE_FUNC"
+                    }
+                                                                            ,
+                                        "1010" : {
+                        name : "支付收银",
+                        desc : "支付收银POS机",
+                        type : "TAG_TYPE_FUNC"
+                    }
+                                                                            ,
+                                        "1011" : {
+                        name : "客服系统",
+                        desc : "",
+                        type : "TAG_TYPE_FUNC"
+                    }
+                                                                            ,
+                                        "1012" : {
+                        name : "现场功能",
+                        desc : "包含现场签到，摇一摇，微信墙，现场投票等",
+                        type : "TAG_TYPE_FUNC"
+                    }
+                                                                            ,
+                                        "1013" : {
+                        name : "会员积分",
+                        desc : "",
+                        type : "TAG_TYPE_FUNC"
+                    }
+                                                                            ,
+                                        "2000" : {
+                        name : "政务民生",
+                        desc : "",
+                        type : "TAG_TYPE_INDUSTRY"
+                    }
+                                                                            ,
+                                        "2001" : {
+                        name : "汽车",
+                        desc : "",
+                        type : "TAG_TYPE_INDUSTRY"
+                    }
+                                                                            ,
+                                        "2002" : {
+                        name : "金融理财",
+                        desc : "",
+                        type : "TAG_TYPE_INDUSTRY"
+                    }
+                                                                            ,
+                                        "2003" : {
+                        name : "房产",
+                        desc : "",
+                        type : "TAG_TYPE_INDUSTRY"
+                    }
+                                                                            ,
+                                        "2004" : {
+                        name : "餐饮",
+                        desc : "",
+                        type : "TAG_TYPE_INDUSTRY"
+                    }
+                                                                            ,
+                                        "2005" : {
+                        name : "本地生活",
+                        desc : "包含电影院、婚庆、搬家、物管、租车、装修建材等",
+                        type : "TAG_TYPE_INDUSTRY"
+                    }
+                                                                            ,
+                                        "2006" : {
+                        name : "休闲娱乐",
+                        desc : "",
+                        type : "TAG_TYPE_INDUSTRY"
+                    }
+                                                                            ,
+                                        "2007" : {
+                        name : "美容养生",
+                        desc : "美容养生",
+                        type : "TAG_TYPE_INDUSTRY"
+                    }
+                                                                            ,
+                                        "2008" : {
+                        name : "健身",
+                        desc : "",
+                        type : "TAG_TYPE_INDUSTRY"
+                    }
+                                                                            ,
+                                        "2009" : {
+                        name : "购物超市",
+                        desc : "",
+                        type : "TAG_TYPE_INDUSTRY"
+                    }
+                                                                            ,
+                                        "2010" : {
+                        name : "电子商务",
+                        desc : "",
+                        type : "TAG_TYPE_INDUSTRY"
+                    }
+                                                                            ,
+                                        "2011" : {
+                        name : "教育培训",
+                        desc : "",
+                        type : "TAG_TYPE_INDUSTRY"
+                    }
+                                                                            ,
+                                        "2012" : {
+                        name : "旅游",
+                        desc : "",
+                        type : "TAG_TYPE_INDUSTRY"
+                    }
+                                                                            ,
+                                        "2013" : {
+                        name : "健康医疗",
+                        desc : "",
+                        type : "TAG_TYPE_INDUSTRY"
+                    }
+                                                                            ,
+                                        "2014" : {
+                        name : "交通票务",
+                        desc : "",
+                        type : "TAG_TYPE_INDUSTRY"
+                    }
+                                                                            ,
+                                        "2015" : {
+                        name : "博彩业",
+                        desc : "",
+                        type : "TAG_TYPE_INDUSTRY"
+                    }
+                                                                            ,
+                                        "2016" : {
+                        name : "酒店",
+                        desc : "",
+                        type : "TAG_TYPE_INDUSTRY"
+                    }
+                                                                            ,
+                                        "2017" : {
+                        name : "智能硬件",
+                        desc : "",
+                        type : "TAG_TYPE_INDUSTRY"
+                    }
+                                                                            ,
+                                        "2018" : {
+                        name : "传媒",
+                        desc : "传统媒体/自媒体",
+                        type : "TAG_TYPE_INDUSTRY"
+                    }
+                                                                            ,
+                                        "2019" : {
+                        name : "广告创意",
+                        desc : "",
+                        type : "TAG_TYPE_INDUSTRY"
+                    }
+                                                                            ,
+                                        "2020" : {
+                        name : "法务咨询",
+                        desc : "",
+                        type : "TAG_TYPE_INDUSTRY"
+                    }
+                                                                            ,
+                                        "2021" : {
+                        name : "游戏",
+                        desc : "",
+                        type : "TAG_TYPE_INDUSTRY"
+                    }
+                                                                            ,
+                                        "2022" : {
+                        name : "物流快递",
+                        desc : "",
+                        type : "TAG_TYPE_INDUSTRY"
+                    }
+                                                                            ,
+                                        "2023" : {
+                        name : "招聘",
+                        desc : "",
+                        type : "TAG_TYPE_INDUSTRY"
+                    }
+                                                                            ,
+                                        "1014" : {
+                        name : "企业管理",
+                        desc : "",
+                        type : "TAG_TYPE_FUNC"
+                    }
+                                                        },
+        tags : [
+                                                                                            "2000"
+                                                                    ]
+    }
+};
+seajs.use("manage/plugin_detail");
+</script>
+
+    
+    <script type="text/javascript" charset="utf-8"> 
+    !$(".selected").hasClass("jsNavItem")&&nav.selected("manage");
+</script>
+</html>
+
