@@ -39,8 +39,6 @@ def exist(find_method, select_str):
         return False
     return True
 
-#def parser_openid_detail_page():
-
 if args.set:
     domains_to_set = [_.strip() for _ in open(args.set)]
 
@@ -52,13 +50,19 @@ driver.maximize_window()
 
 language_switch = driver.find_element_by_css_selector('div.menu_placeholder')
 ActionChains(driver).move_to_element(language_switch).perform()
-time.sleep(0.1)
-driver.find_element_by_css_selector('li.menu_list_ele:nth-child(2)').click()
+wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR,
+    'li.menu_list_ele:nth-child(2)'))).click()
 driver.find_element_by_css_selector('#loginBarBt').click()
 
-
+logined_account = set()
 for account_line in read_tsv(args.account_tab):
     # time.sleep(0.3)
+    # skip viewed account
+    if account_line[3] in logined_account:
+        continue
+    else:
+        logined_account.add(account_line[3])
+
     driver.find_element_by_css_selector('#loginBarBt').click()
     driver.find_element_by_name('account').send_keys(account_line[3])
     driver.find_element_by_name('passwd').send_keys(account_line[4])
@@ -67,15 +71,24 @@ for account_line in read_tsv(args.account_tab):
     table = wait.until(EC.presence_of_element_located((By.ID, 'bizplugin_pend')))
     rows = table.find_elements_by_tag_name('tr')[1:]
     for row in rows:
+        #find sub account
+        open_title = row.find_element_by_css_selector('.title').text
+        status = row.find_element_by_css_selector('.table_cell.status').text
+
+        # if check pass, fetch detail info, else next
+        if status != u'审核通过':
+            print u'\t'.join(account_line[3:5] + [open_title, status] +
+                    list('.'*5)).encode('utf-8')
+            continue
+
         # switch to one open platform
         detail_button = row.find_element_by_class_name('jsUrlLink')
         detail_button.click()
         driver.switch_to_window(driver.window_handles[1])
-        time.sleep(0.5)
 
         # fectch basic info (appid, gh_id, message_key) to store in table
-        open_title = driver.find_element_by_css_selector('.app_name').text
-        appid = driver.find_element_by_css_selector('.app_infos > p:nth-child(1)')
+        appid = wait.until(EC.presence_of_element_located((By.CSS_SELECTOR,
+            '.app_infos > p:nth-child(1)')))
         appid = appid.text.split(':')[1]
 
         ghid = driver.find_element_by_css_selector\
@@ -95,8 +108,8 @@ for account_line in read_tsv(args.account_tab):
             driver.find_element_by_css_selector('span.btn:nth-child(1) > button').click()
 
         # jump to domain set page
-        driver.find_element_by_css_selector('#nextBt').click()
-        driver.find_element_by_css_selector('#js_next2').click()
+        wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, '#nextBt'))).click()
+        wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, '#js_next2'))).click()
 
         domain_frame = driver.find_element_by_css_selector('#sns_domain_frame')
         # view remain modify times
@@ -122,8 +135,9 @@ for account_line in read_tsv(args.account_tab):
         driver.switch_to_window(driver.window_handles[0])
 
         # print out detail info
-        print '\t'.join(account_line[3:5]+
-                [open_title, appid, ghid, message_key, domain_seted, remain_times])
+        print u'\t'.join(account_line[3:5] +
+                [open_title, status, appid, ghid, message_key, domain_seted,
+                    remain_times]).encode('utf-8')
 
     # finally login out
     driver.find_element_by_css_selector("a.account_meta:nth-child(3)").click()
