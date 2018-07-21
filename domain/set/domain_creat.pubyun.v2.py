@@ -11,6 +11,7 @@ import string
 import MySQLdb
 import re
 import argparse
+import requests
 
 parser = argparse.ArgumentParser(
         description='delet blocked domain and create new domain in Pubyun.com')
@@ -27,7 +28,7 @@ def check_block(domain):
     check_base = "http://check.api-export.com/api/checkdomain"
     playload = {'key': '235e48db60605d00dc64df889dca69e1', 'url': domain}
     try:
-        check_response = req.get(check_base, params = playload)
+        check_response = requests.get(check_base, params = playload)
         return json.loads(check_response.text)['code']
     except:
         return '.'
@@ -49,6 +50,12 @@ driver.find_element_by_class_name('btn_login').click()
 
 wait.until(EC.element_to_be_clickable((By.CLASS_NAME, 'left_navtit'))).click()
 wait.until(EC.element_to_be_clickable((By.LINK_TEXT, '域名列表'))).click()
+
+login_cookies = driver.get_cookies()
+csrftoken = driver.get_cookie('csrftoken')['value']
+ses_pub = requests.Session()
+for cookies in login_cookies:
+    ses_pub.cookies.set(cookies['name'], cookies['value'])
 
 table = wait.until(EC.presence_of_element_located((By.CLASS_NAME, 'gy_result_tb')))
 rows = table.find_elements_by_tag_name('tr')[1:]
@@ -91,51 +98,20 @@ for domain in need_removed:
             find_element_by_xpath('../..'))
     cell = row.find_elements_by_tag_name('td')
     domain_str = cell[1].text.strip()
-    print row.get_attribute('innerHTML')
+    #print row.get_attribute('innerHTML')
     if domain_str in need_removed and domain == domain_str:
-        driver.find_element_by_css_selector('a.blue_button:nth-child(1)').send_keys(Keys.CONTROL + Keys.HOME)
-        cell[5].find_element_by_class_name('delete').click()
         print domain_str, "find in bad domain list, so will be deleted"
         raw_input("Press Enter to delet it and continue...")
-        wait.until(EC.element_to_be_clickable((By.ID, 'rrdelete_button'))).click()
+        ses_pub.get('http://www.pubyun.com/user/dyndns/rrs/' +
+            cell[4].find_element_by_tag_name('a').get_attribute('rel') + '/remove/')
 
-fh = open('domain.txt', 'w')
+fh = open('domain.txt', 'a')
 for idx in range(args.number):
-    wait.until(EC.element_to_be_clickable((By.LINK_TEXT, u'创建动态域名'))).click()
-    uncreated_domains = []
-    while len(uncreated_domains) < 1:
-        domin_input = driver.find_element_by_id('dyndns_name')
-        domin_input.clear()
-        domin_input.send_keys(str(domain_idx_max+idx+1)+random_generator(12))
-        driver.find_element_by_partial_link_text(".8866.org").click()
-        #driver.find_element_by_partial_link_text(".8800.org").click()
-        driver.find_element_by_id('form_win_button').click()
-
-        table = wait.until(EC.presence_of_element_located((By.ID, 'dyndns_table')))
-        rows = table.find_elements_by_tag_name('tr')[1:]
-        for row in rows:
-            cell = row.find_elements_by_tag_name('td')
-            if cell[0].text.count(u'已被创建') == 0 :
-                domain_extract = cell[0].text.split()[0]
-                #if domain_extract.count('.3322.') or domain_extract.count('.8800.'):
-                if domain_extract.count('.8866.'):
-                    uncreated_domains.append([cell[0].text.split()[0], row])
-
-    choiced_domain = random.choice(uncreated_domains)
-    raw_input(choiced_domain[0]+' will created, Press Enter to continue...')
-    choiced_domain[1].find_element_by_link_text(u'创建域名').click()
-    time.sleep(3)
-    if driver.find_element_by_id('rr_result').text.count(u'个数已满')>0:
-        print u'创建的域名个数已满，需要创建更多动态域名，请购买二级域名'
-        exit()
-    fh.write(choiced_domain[0]+'\n')
-    ip_set = (driver.find_element_by_partial_link_text(choiced_domain[0]).
-               find_element_by_xpath('../..'))
-    #print ip_set.get_attribute('innerHTML')
-    ip_set.find_element_by_class_name('editor').click()
-    ip_set = wait.until(EC.presence_of_element_located((By.NAME, 'ip')))
-    ip_set.clear()
-    ip_set.send_keys(IP)
-    driver.find_element_by_id('rr_postbtn').click()
+    domain_name = str(domain_idx_max+idx+1) + random_generator(12)
+    formdata = dict(csrfmiddlewaretoken = csrftoken, name = domain_name,
+            ip = args.ip, domainid='8866.org')
+    raw_input(domain_name +'.8866.org will created, Press Enter to continue...')
+    ses_pub.post('http://www.pubyun.com/user/dyndns/rrs/addrrs/2/', data = formdata)
+    fh.write(domain_name+'.8866.org\n')
 
 
